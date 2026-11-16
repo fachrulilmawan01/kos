@@ -100,11 +100,11 @@ export const ROOM_TYPES: RoomType[] = [
       "Kamar Mandi Bersih & Terawat",
       "Gratis Air Bersih Melimpah & Iuran Sampah",
     ],
-    mainImage: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80",
+    mainImage: "/images/kos-bu-yett-depan.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1540518614846-7ede433c4550?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80"
+      "/images/kos-bu-yett-depan.jpg",
+      "/images/kos-bu-yett-kamar-1.jpg",
+      "/images/kos-bu-yett-kamar-2.jpg"
     ],
     includedUtilities: ["Air Bersih Sumur/PDAM Jernih Gratis", "Bebas Iuran Sampah Lingkungan", "Parkir Motor Berpagar Aman"]
   },
@@ -132,10 +132,11 @@ export const ROOM_TYPES: RoomType[] = [
       "Kamar Mandi Bersih & Terawat",
       "Gratis Air Bersih Melimpah & Iuran Sampah",
     ],
-    mainImage: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80",
+    mainImage: "/images/kos-bu-yett-kamar-2.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80"
+      "/images/kos-bu-yett-kamar-2.jpg",
+      "/images/kos-bu-yett-depan.jpg",
+      "/images/kos-bu-yett-kamar-1.jpg"
     ],
     includedUtilities: ["Air Bersih Melimpah Gratis", "Iuran Sampah & Kebersihan", "Slot Parkir 2 Motor Berpagar"]
   }

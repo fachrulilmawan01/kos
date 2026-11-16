@@ -1,13 +1,13 @@
 import React from 'react';
-import { 
-  Home, 
-  MapPin, 
-  Phone, 
-  Clock, 
-  ArrowUp, 
+import {
+  Home,
+  MapPin,
+  Phone,
+  Clock,
+  ArrowUp,
   MessageCircle,
   ExternalLink,
-  GraduationCap 
+  GraduationCap
 } from 'lucide-react';
 import { KOS_INFO } from '../data/kosData';
 import { createWhatsAppUrl } from '../utils/formatters';
@@ -25,9 +25,9 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#0f172a] text-gray-300 pt-14 pb-8 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-gray-800">
-          
+
           {/* Brand Info in Rukita Style */}
           <div className="lg:col-span-5 space-y-3.5">
             <div className="flex items-center gap-2.5">
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
                 KOS <span className="text-rukita-400">Buk Yet</span>
               </span>
             </div>
-            
+
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rukita-950 text-rukita-400 border border-rukita-800 text-xs font-black">
               <GraduationCap className="w-3.5 h-3.5" />
               <span>{KOS_INFO.targetAudience} • Dekat Univ. Adzkia</span>
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-black text-white uppercase tracking-wider">
               Kontak & Alamat Kos
             </h4>
-            
+
             <div className="space-y-2 text-xs text-gray-400">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rukita-400 shrink-0 mt-0.5" />
@@ -118,7 +118,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Credits in Rukita Style */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} {KOS_INFO.name} ({KOS_INFO.altName}) • Desain Terinspirasi Rukita.co</p>
+          <p>© {new Date().getFullYear()} {KOS_INFO.name} ({KOS_INFO.altName}) </p>
           <button
             onClick={scrollToTop}
             className="p-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors"

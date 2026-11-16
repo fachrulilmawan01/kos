@@ -163,7 +163,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
               
               <div className="relative rounded-3xl overflow-hidden border border-gray-300 shadow-xl bg-gray-200 aspect-[4/3] sm:aspect-[1/1]">
                 <img
-                  src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80"
+                  src="/images/kos-bu-yett-depan.jpg"
                   alt="KOS Buk Yet - Kamar Kost Mahasiswa Pria Dekat Universitas Adzkia"
                   className="w-full h-full object-cover"
                 />
