@@ -1,78 +1,50 @@
-# KOS Buk Yet - Web Profile & Booking
+# KOS Buk Yet (Kos Putra Bu Yett)
 
-Aplikasi web profil modern, responsif, dan interaktif untuk **KOS Buk Yet** (Lowokwaru, Malang). Dirancang khusus untuk memikat calon penghuni kos (mahasiswa & pekerja profesional) dengan informasi lengkap, transparan, dan terhubung langsung ke WhatsApp pengelola kos.
+Aplikasi web profil modern, simpel, dan profesional untuk **KOS Buk Yet (Kos Putra Bu Yett)** yang berlokasi di Kalumbuk, Kec. Kuranji, Kota Padang, Sumatera Barat.
+
+- 📍 **Lokasi Google Maps**: [Kos Putra Bu Yett](https://www.google.com/maps/place/Kos+Putra+Bu+Yett/@-0.9195924,100.3961469,21z/data=!4m6!3m5!1s0x2fd4b9005aa875a5:0x62008f2ad5bdb192!8m2!3d-0.9195924!4d100.3964446!16s%2Fg%2F11nvzykcns)
+- 🛏️ **Pilihan Kamar**: Tipe 1 Bed (Single) & Tipe 2 Bed (Twin / Berdua)
+- 💰 **Harga Sewa**: Mulai dari **Rp 350.000 / bulan**
 
 ---
 
 ## 🌟 Fitur Utama
 
-1. **Hero & Highlight Penawaran**
-   - Tagline menarik & jaminan hunian nyaman, aman, dan bersih.
-   - Badge ketersediaan kamar secara live.
-   - Tombol Call-to-Action langsung: Jelajah Kamar & Jadwalkan Survei.
+1. **Desain Modern, Simpel & Profesional**
+   - Tampilan bersih, rapi, dan cepat dengan tipografi tajam dan tata letak minimalis yang nyaman dibaca.
 
-2. **Katalog Tipe Kamar & Galeri Foto**
-   - Filter kamar: *Semua*, *Tipe AC*, *Tipe Non-AC*, dan *Tipe VIP / Suite*.
-   - Modal detail interaktif untuk melihat galeri foto resolusi tinggi, ukuran kamar, spesifikasi tempat tidur, daya listrik, dan daftar fasilitas.
-   - Tombol booking langsung ke WhatsApp dengan template pesan otomatis.
+2. **Katalog Kamar 1 Bed & 2 Bed**
+   - **Tipe 1 Bed (Standar)**: Rp 350.000 / bulan (Paling hemat, privat 1 orang).
+   - **Tipe 1 Bed (KM Dalam)**: Rp 450.000 / bulan (Privasi maksimal dengan kamar mandi dalam).
+   - **Tipe 2 Bed (Standar)**: Rp 600.000 / bulan (Hanya Rp 300.000/orang jika patungan berdua).
+   - **Tipe 2 Bed (KM Dalam)**: Rp 700.000 / bulan (Kamar mandi dalam untuk berdua).
 
-3. **Fasilitas Bersama Lengkap**
-   - WiFi Fiber Optic 150 Mbps, Dapur bersama siap pakai (kompor & gas gratis), Dispenser air minum galon higienis gratis, CCTV 24 jam & One Gate System, Parkir motor/mobil luas berkanopi, dan Mesin cuci bersama.
+3. **Kalkulator Simulasi Sewa**
+   - Perhitungan sewa bulanan, 6 bulan, dan 1 tahun.
+   - Pilihan tambahan alat elektronik pribadi (magic com, kipas angin).
+   - Tombol satu klik kirim hasil estimasi ke WhatsApp Bu Yet.
 
-4. **Kalkulator Biaya Sewa Interaktif (Cost Calculator)**
-   - Simulasi biaya sewa berdasarkan durasi tinggal (1 bulan, 3 bulan, 6 bulan, hingga tahunan dengan diskon s.d. 9%).
-   - Pilihan layanan opsional (slot parkir mobil, kulkas mini, rice cooker, paket laundry).
-   - Rincian biaya transparan beserta jaminan uang deposit kunci refundable.
-   - Tombol kirim hasil simulasi langsung ke WhatsApp Buk Yet.
+4. **Peta & Petunjuk Arah Terintegrasi**
+   - Navigasi Google Maps langsung ke titik koordinat Kos Putra Bu Yett.
+   - Estimasi jarak dan waktu tempuh ke By Pass Padang, Universitas Baiturrahmah, RS Siti Rahmah, UIN Imam Bonjol, UNP, dan UNAND.
 
-5. **Akses Lokasi & Peta Strategis**
-   - Jarak tempuh dan estimasi menit ke kampus terdekat (Universitas Brawijaya, Univ. Negeri Malang, Polinema), minimarket, dan kuliner.
-   - Tombol salin alamat lengkap satu klik & tautan Google Maps.
+5. **Tata Tertib & Fasilitas**
+   - Ketentuan kos putra yang tertib, air bersih lancar melimpah, parkir motor aman berpagar, dan dapur bersama.
 
-6. **Tata Tertib & Norma Hunian**
-   - Panduan aturan jam malam yang jelas, etika bertamu, ketenangan istirahat malam, dan jaminan keamanan bagi orang tua penghuni.
-
-7. **Testimoni & Pengalaman Penghuni**
-   - Ulasan nyata dari mahasiswa dan pekerja perantau mengenai keramahan Buk Yet dan kenyamanan lingkungan kos.
-
-8. **Formulir Jadwal Survei Online & Floating WhatsApp**
-   - Form survei dengan pilihan tanggal dan jam kunjungan.
-   - Tombol melayang (floating widget) WhatsApp dengan pertanyaan cepat instan.
+6. **Booking & Survei WhatsApp**
+   - Formulir survei interaktif dan tombol melayang (floating WhatsApp).
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 🚀 Panduan Menjalankan
 
-- **React 19**
-- **TypeScript**
-- **Vite 6**
-- **Tailwind CSS**
-- **Lucide React** (Modern Icons)
-
----
-
-## 🚀 Panduan Menjalankan Aplikasi
-
-### 1. Masuk ke direktori dan pasang dependensi (jika belum):
 ```bash
+# Pasang dependensi
 npm install
-```
 
-### 2. Jalankan development server:
-```bash
+# Jalankan server development
 npm run dev
-```
-Akses web melalui browser di: `http://localhost:5173`
 
-### 3. Build untuk produksi:
-```bash
+# Build untuk produksi
 npm run build
 ```
-Hasil build akan tersimpan di folder `dist/` dan siap di-deploy ke Vercel, Netlify, atau web hosting pilihan Anda.
-
----
-
-## ⚙️ Kustomisasi Data & Kontak
-
-Semua data (nomor WhatsApp, alamat, harga kamar, foto, fasilitas, dan FAQ) dapat diubah dengan mudah di file:
-👉 `src/data/kosData.ts`

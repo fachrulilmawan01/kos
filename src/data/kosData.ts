@@ -1,13 +1,12 @@
 export interface RoomType {
   id: string;
   name: string;
-  category: 'ac' | 'non-ac' | 'vip';
+  bedCount: '1-bed' | '2-bed';
   tag: string;
-  tagColor: string;
   priceMonthly: number;
-  priceQuarterly?: number;
+  priceHalfYearly?: number;
   priceYearly?: number;
-  discountYearlyPercent: number;
+  capacity: string;
   size: string;
   bedType: string;
   availableRooms: number;
@@ -17,7 +16,6 @@ export interface RoomType {
   mainImage: string;
   gallery: string[];
   includedUtilities: string[];
-  electricityType: string;
 }
 
 export interface Facility {
@@ -26,7 +24,6 @@ export interface Facility {
   description: string;
   iconName: string;
   badge?: string;
-  image?: string;
 }
 
 export interface Testimonial {
@@ -40,77 +37,66 @@ export interface Testimonial {
   comment: string;
 }
 
-export interface Rule {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  icon: string;
-}
-
 export interface Landmark {
   name: string;
   category: string;
   distance: string;
   duration: string;
-  travelMode: 'motor' | 'jalan' | 'mobil';
 }
 
 export interface FAQ {
   id: string;
   question: string;
   answer: string;
-  category: 'pembayaran' | 'aturan' | 'fasilitas' | 'survei';
 }
 
 export const KOS_INFO = {
   name: "KOS Buk Yet",
-  tagline: "Hunian Kost Nyaman, Bersih, Strategis & Kekeluargaan",
-  subTagline: "Tempat tinggal ideal bagi mahasiswa & pekerja profesional dengan fasilitas lengkap, privasi terjaga, dan pengawasan aman 24 jam di bawah naungan keramahan Buk Yet.",
-  address: "Jl. Kemuning Asri No. 42, RT 03 / RW 05, Kel. Sukamaju, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141",
+  altName: "Kos Putra Bu Yett",
+  typeBadge: "Kos Putra",
+  tagline: "Hunian Kost Mahasiswa & Pekerja yang Tenang, Bersih, dan Terjangkau",
+  subTagline: "Pilihan hunian terbaik di Kalumbuk, Padang. Lingkungan asri, aman, kondusif untuk istirahat dan belajar dengan tarif sewa terjangkau mulai dari Rp 350.000/bulan.",
+  address: "Kalumbuk, Kec. Kuranji, Kota Padang, Sumatera Barat 25147",
   whatsappNumber: "6281234567890",
   whatsappDisplay: "+62 812-3456-7890",
   phoneNumber: "0812-3456-7890",
-  email: "kosbukyet@gmail.com",
-  instagram: "@kos.bukyet",
-  visitingHours: "07.00 - 21.30 WIB",
-  curfewInfo: "Bebas Jam Malam (Pintu Gerbang Smart Lock & Kunci Masing-Masing)",
-  genderType: "Campur Terpisah (Blok Putra & Blok Putri Mandiri) / Eksekutif",
-  googleMapsUrl: "https://maps.google.com/?q=-7.945823,112.617498",
-  googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15805.807886478988!2d112.6100000!3d-7.9450000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTYnNDIuMCJTIDExMsKwMzYnNTQuMCJF!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid",
+  googleMapsUrl: "https://www.google.com/maps/place/Kos+Putra+Bu+Yett/@-0.9195924,100.3961469,21z/data=!4m6!3m5!1s0x2fd4b9005aa875a5:0x62008f2ad5bdb192!8m2!3d-0.9195924!4d100.3964446!16s%2Fg%2F11nvzykcns",
+  googleMapsEmbed: "https://maps.google.com/maps?q=-0.9195924,100.3964446&hl=id&z=17&output=embed",
+  minPrice: 350000,
+  minPriceFormatted: "Rp 350.000",
+  curfewInfo: "Akses Kunci Pagar Bebas Bertanggung Jawab",
+  visitingHours: "08.00 - 21.00 WIB",
   stats: [
-    { label: "Total Kamar Nyaman", value: "24", unit: "Unit" },
-    { label: "Kecepatan WiFi", value: "150", unit: "Mbps" },
-    { label: "Rating Kepuasan", value: "4.9", unit: "dari 5" },
-    { label: "Penghuni Betah", value: "98%", unit: "Perpanjang" },
+    { label: "Harga Sewa Mulai", value: "350 Ribu", unit: "/bulan" },
+    { label: "Pilihan Kamar", value: "1 & 2 Bed", unit: "Pilihan" },
+    { label: "Akses Kampus & Kota", value: "Strategis", unit: "Padang" },
+    { label: "Lingkungan", value: "Tenang & Bersih", unit: "Aman" },
   ]
 };
 
 export const ROOM_TYPES: RoomType[] = [
   {
-    id: "standar-non-ac",
-    name: "Kamar Tipe Standar (Sejuk & Hemat)",
-    category: "non-ac",
-    tag: "Favorit Mahasiswa",
-    tagColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
-    priceMonthly: 850000,
-    priceQuarterly: 2450000,
-    priceYearly: 9500000,
-    discountYearlyPercent: 7,
-    size: "3 x 3.5 Meter",
-    bedType: "Single Springbed (120x200 cm)",
+    id: "1-bed-standar",
+    name: "Kamar Tipe 1 Bed (Standar)",
+    bedCount: "1-bed",
+    tag: "Paling Hemat",
+    priceMonthly: 350000,
+    priceHalfYearly: 2000000,
+    priceYearly: 3900000,
+    capacity: "1 Orang",
+    size: "3 x 3 Meter",
+    bedType: "1 Kasur Single",
     availableRooms: 3,
     totalRooms: 8,
-    description: "Kamar bernuansa tenang dan sejuk dengan ventilasi udara alami serta exhaust fan. Pilihan tepat bagi Anda yang mengutamakan kenyamanan esensial dengan budget ramah kantong.",
+    description: "Kamar privat untuk satu orang dengan suasana tenang dan sirkulasi udara baik. Pilihan paling hemat dan pas untuk mahasiswa atau pekerja mandiri.",
     features: [
-      "Kamar Mandi Dalam (Kloset Duduk & Shower)",
-      "Exhaust Fan Sirkulasi Sejuk",
-      "Springbed Berkualitas + Bantal Guling",
-      "Meja Belajar / Kerja Kayu Jati + Kursi",
-      "Lemari Pakaian 2 Pintu dengan Cermin",
-      "Stopkontak dekat kasur & meja",
-      "Jendela dengan tirai & pencahayaan bagus",
-      "Tempat sampah & rak sepatu pribadi",
+      "1 Tempat Tidur Single + Kasur Empuk",
+      "Lemari Pakaian Pribadi",
+      "Meja Belajar / Kerja + Kursi",
+      "Ventilasi & Jendela Sirkulasi Udara Segar",
+      "Stopkontak Listrik Pribadi",
+      "Akses Kamar Mandi Luar Bersih & Terawat",
+      "Free Air Bersih & Iuran Sampah",
     ],
     mainImage: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80",
     gallery: [
@@ -118,297 +104,224 @@ export const ROOM_TYPES: RoomType[] = [
       "https://images.unsplash.com/photo-1540518614846-7ede433c4550?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80"
     ],
-    includedUtilities: ["Air Bersih PDAM Gratis", "Free WiFi 150 Mbps", "Sampah & Kebersihan Luar"],
-    electricityType: "Listrik Token Mandiri (900 VA per kamar)"
+    includedUtilities: ["Air Bersih PDAM / Sumur Jernih Gratis", "Iuran Sampah & Kebersihan Lingkungan", "Parkir Motor Aman"]
   },
   {
-    id: "superior-ac",
-    name: "Kamar Tipe Superior AC (Paling Populer)",
-    category: "ac",
-    tag: "Best Seller",
-    tagColor: "bg-blue-100 text-blue-800 border-blue-300",
-    priceMonthly: 1450000,
-    priceQuarterly: 4200000,
-    priceYearly: 16000000,
-    discountYearlyPercent: 8,
-    size: "3.5 x 4 Meter",
-    bedType: "Queen Springbed (140x200 cm)",
+    id: "1-bed-km-dalam",
+    name: "Kamar Tipe 1 Bed (Kamar Mandi Dalam)",
+    bedCount: "1-bed",
+    tag: "Privasi Maksimal",
+    priceMonthly: 450000,
+    priceHalfYearly: 2600000,
+    priceYearly: 5000000,
+    capacity: "1 Orang",
+    size: "3 x 3.5 Meter",
+    bedType: "1 Kasur Single Nyaman",
     availableRooms: 2,
-    totalRooms: 10,
-    description: "Kamar sejuk dengan pendingin ruangan (AC 0.5 PK hemat daya) dan interior modern minimalis. Sangat nyaman untuk istirahat optimal dan produktif seharian.",
+    totalRooms: 6,
+    description: "Kamar 1 bed dengan kamar mandi pribadi di dalam ruangan. Menawarkan kenyamanan dan privasi lebih tinggi tanpa perlu antre kamar mandi luar.",
     features: [
-      "AC 0.5 PK Hemat Daya (Rutin Diservis)",
-      "Kamar Mandi Dalam Modern (Shower & Kloset Duduk)",
-      "Springbed Queen Size Tebal & Empuk",
-      "Meja Belajar Ergonomis + Kursi Kerja Nyaman",
-      "Lemari Pakaian 3 Pintu + Cermin Full Body",
-      "Smart TV 32 Inch (YouTube & Netflix ready)",
-      "Free WiFi Router Access Point per Lorong",
-      "Sprei Baru & Bersih saat Check-in",
+      "Kamar Mandi Dalam Pribadi (Eksklusif)",
+      "1 Tempat Tidur Single + Bantal & Sprei",
+      "Lemari Pakaian Kayu 2 Pintu",
+      "Meja Belajar Kayu + Kursi Ergonomis",
+      "Jendela dengan Tirai & Pencahayaan Bagus",
+      "Stopkontak Dekat Meja & Kasur",
+      "Free Air Bersih & Kebersihan",
     ],
     mainImage: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80"
     ],
-    includedUtilities: ["Air PDAM & Sanitasi Gratis", "WiFi 150 Mbps Unlimited", "Iuran Keamanan & Lingkungan"],
-    electricityType: "Listrik Token Mandiri (1300 VA per kamar)"
+    includedUtilities: ["Air Bersih Gratis", "Iuran Keamanan & Sampah", "Akses Parkir Motor"]
   },
   {
-    id: "deluxe-vip",
-    name: "Kamar Tipe Deluxe VIP (Water Heater & Balkon)",
-    category: "vip",
-    tag: "Eksklusif & Mewah",
-    tagColor: "bg-amber-100 text-amber-900 border-amber-300",
-    priceMonthly: 1950000,
-    priceQuarterly: 5600000,
-    priceYearly: 21500000,
-    discountYearlyPercent: 8.5,
-    size: "4 x 4.5 Meter",
-    bedType: "King Springbed (160x200 cm)",
-    availableRooms: 1,
-    totalRooms: 4,
-    description: "Kamar tipe suite eksekutif dengan balkon pribadi yang menghadap taman asri. Dilengkapi pemanas air (water heater), smart TV, kulkas mini, dan ruang kerja privat super lega.",
+    id: "2-bed-standar",
+    name: "Kamar Tipe 2 Bed (Kapasitas 2 Orang)",
+    bedCount: "2-bed",
+    tag: "Hemat Berdua",
+    priceMonthly: 600000,
+    priceHalfYearly: 3500000,
+    priceYearly: 6800000,
+    capacity: "2 Orang (Rp 300rb/orang)",
+    size: "3.5 x 4 Meter",
+    bedType: "2 Kasur Single (Twin Bed)",
+    availableRooms: 2,
+    totalRooms: 6,
+    description: "Kamar lega dengan 2 kasur terpisah. Solusi sangat hemat untuk berdua bersama teman satu kampus atau saudara, hanya Rp 300.000 per orang per bulan.",
     features: [
-      "Balkon Pribadi dengan Pemandangan Asri & Sirkulasi Segar",
-      "Kamar Mandi Dalam Luas + Water Heater (Air Hangat)",
-      "AC 1 PK Daikin Inverter Super Senyap",
-      "Kulkas Mini Pribadi (One Door Fridge)",
-      "Smart TV 43 Inch 4K UHD",
-      "Meja Kerja Besar + Kursi Ergonomis Mesh",
-      "Lemari Pakaian Wardrobe Luas + Brankas Kecil",
-      "Free Pembersihan Kamar 2x Sebulan (On Request)",
-    ],
-    mainImage: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1000&q=80"
-    ],
-    includedUtilities: ["Air PDAM & Sanitasi Gratis", "WiFi Kecepatan Prioritas 150 Mbps", "Parkir Mobil Gratis 1 Slot", "Layanan Buang Sampah Harian"],
-    electricityType: "Listrik Token Mandiri (1300 VA per kamar)"
-  },
-  {
-    id: "suite-dua-orang",
-    name: "Kamar Tipe Twin Bed (Bisa Berdua / Pasutri Sah)",
-    category: "vip",
-    tag: "Kapasitas 2 Orang",
-    tagColor: "bg-purple-100 text-purple-900 border-purple-300",
-    priceMonthly: 2300000,
-    priceQuarterly: 6600000,
-    priceYearly: 25000000,
-    discountYearlyPercent: 9,
-    size: "4.5 x 5 Meter",
-    bedType: "2 Single Beds ATAU 1 King Bed",
-    availableRooms: 1,
-    totalRooms: 2,
-    description: "Kamar ekstra lega untuk kakak beradik, teman sekampus, atau pasangan suami istri resmi (menunjukkan buku nikah). Sangat hemat jika dibagi dua orang dengan fasilitas lengkap.",
-    features: [
-      "Dapat ditempati 2 orang (Legal & Nyaman)",
-      "AC 1 PK + Kamar Mandi Dalam Water Heater",
-      "2 Meja Kerja / Belajar & 2 Kursi Mandiri",
+      "2 Tempat Tidur Single Mandiri (Twin Bed)",
       "2 Lemari Pakaian Mandiri",
-      "Kulkas Mini & Rak Penyimpanan Luas",
-      "Jendela Besar dengan Sirkulasi Cahaya Prima",
-      "Koneksi Internet Kabel LAN & WiFi Dedicated",
+      "2 Meja Belajar / Kerja Pribadi",
+      "Kamar Luas, Lega & Sirkulasi Segar",
+      "Stopkontak Masing-Masing Tempat Tidur",
+      "Akses Kamar Mandi Bersih Luar",
+      "Dapur Bersama & Parkir Motor",
     ],
     mainImage: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80"
     ],
-    includedUtilities: ["Air PDAM Gratis", "WiFi Unlimited", "Iuran Keamanan & Sampah"],
-    electricityType: "Listrik Token Mandiri (1300 VA)"
+    includedUtilities: ["Air Bersih Gratis", "Kebersihan Luar", "Parkir 2 Motor"]
+  },
+  {
+    id: "2-bed-km-dalam",
+    name: "Kamar Tipe 2 Bed (Kamar Mandi Dalam)",
+    bedCount: "2-bed",
+    tag: "Kamar Mandi Dalam",
+    priceMonthly: 700000,
+    priceHalfYearly: 4100000,
+    priceYearly: 7900000,
+    capacity: "2 Orang (Rp 350rb/orang)",
+    size: "4 x 4 Meter",
+    bedType: "2 Kasur Single (Twin Bed)",
+    availableRooms: 1,
+    totalRooms: 4,
+    description: "Kamar paling luas dengan fasilitas 2 kasur mandiri dan kamar mandi pribadi di dalam. Sangat nyaman untuk 2 orang penghuni dengan privasi penuh.",
+    features: [
+      "Kamar Mandi Dalam Pribadi",
+      "2 Tempat Tidur Single Lengkap",
+      "2 Meja Belajar + Kursi",
+      "2 Lemari Pakaian Mandiri",
+      "Ruangan Lapang & Pencahayaan Maksimal",
+      "Free Air Bersih & Kebersihan Rutin",
+      "Area Parkir Motor Berpagar",
+    ],
+    mainImage: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
+    ],
+    includedUtilities: ["Air Bersih Bebas Pakai", "Sampah & Keamanan", "Parkir 2 Motor"]
   }
 ];
 
 export const GENERAL_FACILITIES: Facility[] = [
   {
-    id: "wifi",
-    title: "High-Speed WiFi 150 Mbps",
-    description: "Koneksi internet fiber optic dengan access point terdistribusi di setiap lorong, stabil untuk skripsi, zoom meeting, dan gaming tanpa buffer.",
-    iconName: "Wifi",
-    badge: "Anti Lemot"
+    id: "parkir",
+    title: "Parkir Motor Aman Berpagar",
+    description: "Area parkir motor di halaman dalam kos dengan gerbang tertutup, aman dan terlindung.",
+    iconName: "ShieldCheck",
+    badge: "Aman"
+  },
+  {
+    id: "air-bersih",
+    title: "Air Bersih Jernih Melimpah",
+    description: "Kebutuhan air sehari-hari lancar dan jernih, bebas digunakan tanpa biaya tagihan tambahan.",
+    iconName: "Droplets",
+    badge: "Gratis"
   },
   {
     id: "dapur",
-    title: "Dapur Bersama Lengkap",
-    description: "Dilengkapi kompor gas modern, kulkas dua pintu, microwave, blender, peralatan masak, dan wastafel cuci piring yang selalu bersih.",
+    title: "Dapur Bersama Siap Pakai",
+    description: "Disediakan area dapur bersama untuk memasak mi instan, sarapan, atau menghangatkan makanan.",
     iconName: "UtensilsCrossed",
-    badge: "Gas Disediakan"
+    badge: "Praktis"
   },
   {
-    id: "air-minum",
-    title: "Dispenser Air Minum Gratis",
-    description: "Tersedia dispenser air mineral RO galon higienis (panas, dingin, normal) di setiap lantai secara cuma-cuma untuk seluruh penghuni.",
-    iconName: "Droplets",
-    badge: "Gratis Tanpa Batas"
-  },
-  {
-    id: "cctv-keamanan",
-    title: "CCTV 24 Jam & One Gate System",
-    description: "Keamanan terjamin dengan pantauan kamera CCTV aktif 24 jam di semua sudut luar & lorong, serta gerbang smart lock akses kartu/PIN.",
-    iconName: "ShieldCheck",
-    badge: "Aman & Terjaga"
-  },
-  {
-    id: "parkir",
-    title: "Parkir Motor & Mobil Luas Beratap",
-    description: "Area parkir indoor berkanopi luas, aman dari terik matahari dan hujan, muat puluhan motor serta beberapa slot mobil berpagar terkunci.",
-    iconName: "Car",
-    badge: "Beratap & Berpagar"
-  },
-  {
-    id: "laundry-area",
+    id: "jemuran",
     title: "Area Cuci & Jemuran Luas",
-    description: "Disediakan mesin cuci otomatis bersama dan area jemuran lantai atas yang luas dengan kanopi transparan (aman saat hujan mendadak).",
-    iconName: "Shirt",
-    badge: "Mesin Cuci Otomatis"
+    description: "Tersedia ruang cuci dan area jemur pakaian yang mendapatkan sinar matahari penuh.",
+    iconName: "Sun",
+    badge: "Lega"
   },
   {
-    id: "cleaning",
-    title: "Pembersihan Area Bersama Rutin",
-    description: "Petugas kebersihan profesional menyapu, mengepel lorong, membersihkan dapur, dan mengosongkan tempat sampah utama setiap pagi.",
+    id: "lingkungan",
+    title: "Lingkungan Asri & Tenang",
+    description: "Terletak di kawasan pemukiman Kalumbuk yang tidak bising kendaraan besar, kondusif untuk belajar dan istirahat.",
     iconName: "Sparkles",
-    badge: "Selalu Bersih"
+    badge: "Kondusif"
   },
   {
-    id: "ruang-santai",
-    title: "Lounge & Ruang Belajar Terbuka",
-    description: "Ruang santai dengan sofa empuk, meja diskusi, tanaman asri, dan TV bersama untuk menerima tamu atau santai sore hari.",
-    iconName: "Coffee",
-    badge: "Suasana Asri"
+    id: "akses",
+    title: "Akses Keluar Masuk Mandiri",
+    description: "Penghuni diberikan kebebasan akses pagar secara bertanggung jawab, fleksibel bagi yang kuliah lembur atau kerja malam.",
+    iconName: "KeyRound",
+    badge: "Fleksibel"
   }
 ];
 
 export const LANDMARKS: Landmark[] = [
-  { name: "Universitas Brawijaya (UB) Gerbang Utama", category: "Kampus", distance: "1.2 km", duration: "4 Menit", travelMode: "motor" },
-  { name: "Universitas Negeri Malang (UM)", category: "Kampus", distance: "2.1 km", duration: "7 Menit", travelMode: "motor" },
-  { name: "Politeknik Negeri Malang (POLINEMA)", category: "Kampus", distance: "1.8 km", duration: "5 Menit", travelMode: "motor" },
-  { name: "Indomaret & Alfamart 24 Jam", category: "Belanja", distance: "150 m", duration: "2 Menit", travelMode: "jalan" },
-  { name: "Sentra Kuliner & Kafe Malam Suhat", category: "Kuliner", distance: "500 m", duration: "3 Menit", travelMode: "motor" },
-  { name: "RS Universitas Brawijaya (RSUB)", category: "Kesehatan", distance: "1.5 km", duration: "5 Menit", travelMode: "motor" },
-  { name: "Stasiun Kereta Api Malang Kota", category: "Transportasi", distance: "4.5 km", duration: "12 Menit", travelMode: "motor" },
-  { name: "Halte Bus Trans & Angkot", category: "Transportasi", distance: "200 m", duration: "3 Menit", travelMode: "jalan" },
+  { name: "Jalur Utama By Pass Padang", category: "Akses Utama", distance: "600 m", duration: "2 Menit" },
+  { name: "Universitas Baiturrahmah & RS Siti Rahmah", category: "Kampus / RS", distance: "2.8 km", duration: "6 Menit" },
+  { name: "UIN Imam Bonjol Padang", category: "Kampus", distance: "4.5 km", duration: "10 Menit" },
+  { name: "Universitas Negeri Padang (UNP)", category: "Kampus", distance: "6.2 km", duration: "15 Menit" },
+  { name: "Universitas Andalas (UNAND)", category: "Kampus", distance: "8.5 km", duration: "18 Menit" },
+  { name: "Minimarket, Warung & Kuliner Kalumbuk", category: "Kebutuhan", distance: "100 m", duration: "1 Menit" },
 ];
 
-export const RULES: Rule[] = [
+export const RULES = [
   {
     id: "1",
-    category: "Akses & Tamu",
-    title: "Jam Kunjung Tamu & Etika",
-    description: "Tamu lawan jenis dilarang masuk ke dalam kamar tidur pribadi (disediakan ruang tamu/lounge bersama di lantai 1). Batas tamu berkunjung s.d. pukul 21.30 WIB demi kenyamanan bersama.",
-    icon: "Users"
+    title: "Khusus Penghuni Putra",
+    description: "Kos ini diperuntukkan khusus untuk pria (mahasiswa & pekerja) sehingga privasi dan kenyamanan lebih terjaga.",
   },
   {
     id: "2",
-    category: "Keamanan",
-    title: "Akses Kunci & Smart Gate",
-    description: "Penghuni diberikan kunci kamar pribadi dan kartu/PIN akses gerbang utama. Bebas jam pulang kerja/kuliah lembur dengan wajib menutup dan mengunci kembali pintu pagar.",
-    icon: "KeyRound"
+    title: "Menjaga Ketenangan",
+    description: "Waktu tenang dimulai pukul 22.00 WIB demi kenyamanan istirahat dan jam belajar sesama rekan kos.",
   },
   {
     id: "3",
-    category: "Ketenangan",
-    title: "Waktu Tenang (Quiet Hours)",
-    description: "Waktu tenang berlaku mulai pukul 22.00 s.d. 06.00 WIB. Dilarang menyalakan musik terlalu keras atau berisik yang mengganggu waktu istirahat tetangga kos.",
-    icon: "VolumeX"
+    title: "Kebersihan Bersama",
+    description: "Wajib menjaga kebersihan kamar pribadi dan fasilitas bersama (dapur, tempat cuci, dan kamar mandi luar).",
   },
   {
     id: "4",
-    category: "Kebersihan",
-    title: "Kebersihan Fasilitas Bersama",
-    description: "Setiap penghuni wajib mencuci peralatan makan/masak sendiri setelah memakai dapur, serta membuang sampah kamar ke tempat penampungan sampah di depan.",
-    icon: "Trash2"
+    title: "Kunci Gerbang Mandiri",
+    description: "Wajib menutup dan mengunci kembali gerbang utama saat keluar atau masuk kos.",
   },
   {
     id: "5",
-    category: "Larangan Keras",
-    title: "Bebas Narkoba & Miras",
-    description: "Dilarang keras membawa, menyimpan, atau mengonsumsi narkoba, minuman keras, senjata tajam, serta perbuatan yang melanggar hukum dan norma asusila.",
-    icon: "AlertOctagon"
+    title: "Bebas Miras & Narkoba",
+    description: "Dilarang keras membawa atau mengonsumsi minuman keras, narkoba, serta tindakan yang melanggar norma hukum.",
   }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "1",
-    name: "Rizky Firmansyah",
-    role: "Mahasiswa Teknik Sipil UB",
-    duration: "Tinggal 2 Tahun",
-    roomType: "Kamar Superior AC",
+    name: "Fauzan Akbar",
+    role: "Mahasiswa Padang",
+    duration: "Tinggal 1 Tahun",
+    roomType: "Tipe 1 Bed",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80",
-    comment: "KOS Buk Yet beneran berasa rumah sendiri. Buk Yet ramah banget, kalau lagi musim ujian kadang suka dikasih camilan atau buah. Suasananya tenang buat ngerjain tugas, WiFi-nya kencang stabil gak pernah ngadat pas presentasi online."
+    comment: "Harganya sangat terjangkau untuk kantong mahasiswa (mulai 350rb). Ibu kos ramah dan tempatnya tenang buat fokus belajar tugas akhir."
   },
   {
     id: "2",
-    name: "Annisa Dwi Putri",
-    role: "Software QA Engineer (Remote Worker)",
-    duration: "Tinggal 1.5 Tahun",
-    roomType: "Kamar Deluxe VIP",
-    rating: 5,
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&h=200&q=80",
-    comment: "Sebagai pekerja remote, koneksi internet dan kenyamanan kamar adalah nomor satu. Di sini AC dingin, ada water heater, dan balkon sejuk banget. Parkiran aman ada CCTV dan Bu Yet sangat responsif kalau ada lampu putus langsung diganti hari itu juga."
-  },
-  {
-    id: "3",
-    name: "Dimas Anggoro",
-    role: "Mahasiswa Polinema",
-    duration: "Tinggal 1 Tahun",
-    roomType: "Kamar Standar Non-AC",
+    name: "Rian Hidayat",
+    role: "Karyawan Swasta",
+    duration: "Tinggal 8 Bulan",
+    roomType: "Tipe 2 Bed (Berdua Teman)",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
-    comment: "Harga sewa sangat sebanding dengan fasilitasnya! Dapur bersamanya lengkap banget, dispenser air galon selalu terisi gratis, jadi hemat pengeluaran anak kos. Lokasinya dekat banget sama minimarket dan warteg murah."
-  },
-  {
-    id: "4",
-    name: "Siti Rahmawati",
-    role: "Staff Kantor Akuntan",
-    duration: "Tinggal 8 Bulan",
-    roomType: "Kamar Superior AC",
-    rating: 5,
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&h=200&q=80",
-    comment: "Yang paling saya suka keamanannya. Pulang lembur malam pun tenang karena gerbang smart lock dan lingkungan kos dijaga baik. Bersih banget, tiap pagi ada ibu yang bersihin lorong dan dapur."
+    comment: "Sewa kamar 2 bed bareng kawan kantor jadi hemat banget, patungan cuma 300 ribuan per orang. Air bersih lancar dan parkir motor aman."
   }
 ];
 
 export const FAQS: FAQ[] = [
   {
-    id: "f1",
-    category: "pembayaran",
-    question: "Berapa minimal periode sewa kamar di KOS Buk Yet?",
-    answer: "Minimal sewa adalah 1 bulan. Namun kami memberikan potongan harga spesial hingga 9% untuk pembayaran sewa langsung 6 bulan atau 1 tahun di depan."
+    id: "1",
+    question: "Berapa harga sewa kamar di KOS Buk Yet?",
+    answer: "Harga sewa kamar mulai dari Rp 350.000 per bulan untuk tipe 1 Bed (Single). Untuk tipe 2 Bed berdua mulai dari Rp 600.000 per bulan (hanya Rp 300.000 per orang jika patungan berdua)."
   },
   {
-    id: "f2",
-    category: "pembayaran",
-    question: "Apakah ada biaya deposit saat pertama kali masuk?",
-    answer: "Ya, kami memberlakukan uang jaminan (deposit kunci & fasilitas) sebesar Rp 300.000 yang bersifat refundable (akan dikembalikan 100% penuh saat masa sewa selesai jika tidak ada kerusakan fasilitas kamar)."
+    id: "2",
+    question: "Apakah air dan sampah sudah termasuk di dalam biaya sewa?",
+    answer: "Ya, penggunaan air bersih jernih dan iuran sampah lingkungan sudah gratis dan termasuk ke dalam biaya bulanan."
   },
   {
-    id: "f3",
-    category: "fasilitas",
-    question: "Bagaimana dengan sistem pembayaran listrik?",
-    answer: "Semua kamar telah dilengkapi meteran listrik token (PLN prabayar) tersendiri (900 VA / 1300 VA). Jadi penghuni dapat mengisi token sesuai pemakaian pribadi masing-masing tanpa takut terbebani pemakaian orang lain. Sedangkan air PDAM, WiFi, sampah & iuran keamanan sudah GRATIS."
+    id: "3",
+    question: "Apakah kos ini khusus putra?",
+    answer: "Benar, KOS Buk Yet (Kos Putra Bu Yett) diperuntukkan khusus bagi pria (mahasiswa dan karyawan pekerja)."
   },
   {
-    id: "f4",
-    category: "aturan",
-    question: "Apakah penghuni diberi kunci gerbang sendiri (bebas jam malam)?",
-    answer: "Ya, penghuni diberi akses kunci/PIN gerbang sendiri sehingga tidak terkunci jika harus lembur kerja, praktikum kampus, atau ada keperluan mendesak, dengan catatan tetap menjaga ketenangan saat pulang malam."
-  },
-  {
-    id: "f5",
-    category: "aturan",
-    question: "Apakah boleh membawa teman menginap?",
-    answer: "Teman sesama jenis diizinkan menginap maksimal 2 malam dengan konfirmasi terlebih dahulu kepada pengelola kos (Buk Yet) demi ketertiban dan kenyamanan bersama."
-  },
-  {
-    id: "f6",
-    category: "survei",
-    question: "Bagaimana cara melakukan survei lokasi kamar?",
-    answer: "Anda dapat langsung membuat janji survei melalui tombol WhatsApp di web ini atau mengisi formulir survei online. Buk Yet atau penjaga kos siap menyambut Anda setiap hari pukul 08.00 - 20.00 WIB."
+    id: "4",
+    question: "Bagaimana cara survei kamar atau bertanya ketersediaan?",
+    answer: "Anda dapat langsung menghubungi Buk Yet melalui chat WhatsApp dengan mengklik tombol di website ini, atau mengisi form survei untuk menentukan jadwal kunjungan."
   }
 ];

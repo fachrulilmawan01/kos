@@ -5,8 +5,8 @@ import {
   Check, 
   MessageCircle, 
   Eye, 
-  Calendar, 
-  Sparkles 
+  Users,
+  Calendar
 } from 'lucide-react';
 import { ROOM_TYPES, RoomType, KOS_INFO } from '../data/kosData';
 import { formatRupiah, createWhatsAppUrl } from '../utils/formatters';
@@ -17,135 +17,124 @@ interface RoomSectionProps {
 }
 
 export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'ac' | 'non-ac' | 'vip'>('all');
+  const [selectedFilter, setSelectedFilter] = useState<'all' | '1-bed' | '2-bed'>('all');
   const [selectedRoom, setSelectedRoom] = useState<RoomType | null>(null);
 
-  const filteredRooms = selectedCategory === 'all'
+  const filteredRooms = selectedFilter === 'all'
     ? ROOM_TYPES
-    : ROOM_TYPES.filter((r) => r.category === selectedCategory);
+    : ROOM_TYPES.filter((r) => r.bedCount === selectedFilter);
 
   return (
-    <section id="kamar" className="py-16 sm:py-24 bg-white relative">
+    <section id="kamar" className="py-16 sm:py-20 bg-white border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-700 bg-brand-100/80 px-3 py-1 rounded-full border border-brand-200">
-            Pilihan Tipe Kamar
+        <div className="max-w-2xl mx-auto text-center space-y-2.5 mb-10">
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            Katalog Kamar
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            Temukan Kamar Sesuai Kebutuhan & Budget Anda
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+            Pilihan Kamar 1 Bed & 2 Bed
           </h2>
-          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-            Semua kamar dirancang dengan sirkulasi udara baik, pencahayaan alami, perabot lengkap, dan privasi tinggi.
+          <p className="text-stone-600 text-sm leading-relaxed">
+            Tersedia pilihan kamar untuk 1 orang (Single) maupun 2 orang (Twin Bed berdua), dengan opsi kamar mandi dalam atau luar. Harga terjangkau mulai dari Rp 350.000/bulan.
           </p>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex items-center justify-center gap-2 mb-12 flex-wrap">
+        {/* Filter Tabs */}
+        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
           <button
-            onClick={() => setSelectedCategory('all')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-              selectedCategory === 'all'
-                ? 'bg-stone-900 text-white shadow-md'
-                : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80'
+            onClick={() => setSelectedFilter('all')}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors ${
+              selectedFilter === 'all'
+                ? 'bg-stone-900 text-white shadow-xs'
+                : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
             }`}
           >
-            Semua Tipe ({ROOM_TYPES.length})
+            Semua Pilihan ({ROOM_TYPES.length})
           </button>
           <button
-            onClick={() => setSelectedCategory('ac')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-              selectedCategory === 'ac'
-                ? 'bg-stone-900 text-white shadow-md'
-                : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80'
+            onClick={() => setSelectedFilter('1-bed')}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors ${
+              selectedFilter === '1-bed'
+                ? 'bg-stone-900 text-white shadow-xs'
+                : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
             }`}
           >
-            Tipe AC
+            Tipe 1 Bed (Mulai Rp 350.000)
           </button>
           <button
-            onClick={() => setSelectedCategory('non-ac')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-              selectedCategory === 'non-ac'
-                ? 'bg-stone-900 text-white shadow-md'
-                : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80'
+            onClick={() => setSelectedFilter('2-bed')}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors ${
+              selectedFilter === '2-bed'
+                ? 'bg-stone-900 text-white shadow-xs'
+                : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
             }`}
           >
-            Tipe Hemat Non-AC
-          </button>
-          <button
-            onClick={() => setSelectedCategory('vip')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-              selectedCategory === 'vip'
-                ? 'bg-stone-900 text-white shadow-md'
-                : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80'
-            }`}
-          >
-            Tipe VIP & Suite
+            Tipe 2 Bed (Kapasitas 2 Orang)
           </button>
         </div>
 
         {/* Room Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {filteredRooms.map((room) => {
             const waRoomUrl = createWhatsAppUrl(
               KOS_INFO.whatsappNumber,
-              `Halo Buk Yet, saya mau menanyakan kamar tipe ${room.name} (${formatRupiah(room.priceMonthly)}/bulan). Apakah masih tersedia?`
+              `Halo Bu Yet, saya mau menanyakan ketersediaan kamar ${room.name} (${formatRupiah(room.priceMonthly)}/bulan). Apakah masih ada yang kosong?`
             );
 
             return (
               <div
                 key={room.id}
-                className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
               >
-                {/* Room Image Container */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-stone-100">
+                {/* Image */}
+                <div className="relative aspect-[16/9] bg-stone-100 overflow-hidden">
                   <img
                     src={room.mainImage}
                     alt={room.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-
-                  {/* Top Badge: Tag */}
-                  <div className="absolute top-3 left-3">
-                    <span className={`text-[11px] font-bold px-3 py-1 rounded-full border shadow-xs ${room.tagColor}`}>
+                  
+                  {/* Badges */}
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-stone-900 text-white shadow-xs">
+                      {room.bedCount === '1-bed' ? '1 Bed' : '2 Bed'}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-white text-stone-800 border border-stone-200 shadow-2xs">
                       {room.tag}
                     </span>
                   </div>
 
-                  {/* Top Right: Availability Pill */}
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[11px] font-bold text-stone-800 shadow-sm flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                     Sisa {room.availableRooms} Kamar
                   </div>
 
-                  {/* Bottom Image Overlay: Specs */}
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-medium">
-                    <span className="flex items-center gap-1 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-lg">
-                      <Maximize2 className="w-3.5 h-3.5" /> {room.size}
+                    <span className="bg-stone-900/80 px-2 py-0.5 rounded backdrop-blur-xs flex items-center gap-1">
+                      <Maximize2 className="w-3 h-3" /> {room.size}
                     </span>
-                    <span className="flex items-center gap-1 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-lg">
-                      <Bed className="w-3.5 h-3.5" /> {room.bedType.split('(')[0]}
+                    <span className="bg-stone-900/80 px-2 py-0.5 rounded backdrop-blur-xs flex items-center gap-1">
+                      <Users className="w-3 h-3" /> {room.capacity}
                     </span>
                   </div>
                 </div>
 
-                {/* Card Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                {/* Content */}
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                   <div>
-                    <h3 className="font-extrabold text-lg sm:text-xl text-stone-900 group-hover:text-brand-700 transition-colors">
+                    <h3 className="font-extrabold text-base sm:text-lg text-stone-900">
                       {room.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-stone-500 line-clamp-2 mt-1 leading-relaxed">
+                    <p className="text-xs text-stone-600 mt-1 line-clamp-2 leading-relaxed">
                       {room.description}
                     </p>
 
-                    {/* Features Snippet */}
-                    <div className="mt-4 pt-3 border-t border-stone-100 space-y-1.5">
+                    {/* Features list */}
+                    <div className="mt-4 pt-3 border-t border-stone-100 grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {room.features.slice(0, 4).map((f, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs text-stone-700">
+                        <div key={i} className="flex items-center gap-1.5 text-xs text-stone-700">
                           <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           <span className="truncate">{f}</span>
                         </div>
@@ -153,22 +142,22 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     </div>
                   </div>
 
-                  {/* Pricing and Action Buttons */}
+                  {/* Pricing and Action */}
                   <div className="pt-4 border-t border-stone-100 space-y-3">
                     <div className="flex items-baseline justify-between">
                       <div>
-                        <span className="text-[11px] text-stone-400 font-medium block">Biaya sewa:</span>
+                        <span className="text-[11px] text-stone-500 font-medium block">Tarif Sewa:</span>
                         <div className="flex items-baseline gap-1">
-                          <span className="text-xl sm:text-2xl font-black text-stone-900">
+                          <span className="text-2xl font-black text-stone-900">
                             {formatRupiah(room.priceMonthly)}
                           </span>
-                          <span className="text-xs text-stone-500 font-medium">/bln</span>
+                          <span className="text-xs text-stone-500 font-normal">/bulan</span>
                         </div>
                       </div>
-
-                      {room.discountYearlyPercent > 0 && (
-                        <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-200">
-                          Hemat {room.discountYearlyPercent}% tahunan
+                      
+                      {room.bedCount === '2-bed' && (
+                        <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
+                          Hemat patungan berdua
                         </span>
                       )}
                     </div>
@@ -176,9 +165,9 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         onClick={() => setSelectedRoom(room)}
-                        className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs sm:text-sm font-bold transition-all"
+                        className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold transition-colors"
                       >
-                        <Eye className="w-4 h-4 text-stone-600" />
+                        <Eye className="w-3.5 h-3.5 text-stone-600" />
                         <span>Detail & Foto</span>
                       </button>
 
@@ -186,19 +175,12 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                         href={waRoomUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-sm transition-all"
+                        className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors shadow-2xs"
                       >
-                        <MessageCircle className="w-4 h-4" />
-                        <span>Pesan WA</span>
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Tanya WA</span>
                       </a>
                     </div>
-
-                    <button
-                      onClick={() => onOpenSurvey(room.name)}
-                      className="w-full py-1.5 text-center text-xs font-semibold text-stone-500 hover:text-brand-700 transition-colors flex items-center justify-center gap-1"
-                    >
-                      <Calendar className="w-3.5 h-3.5" /> Jadwalkan survei lihat kamar ini
-                    </button>
                   </div>
                 </div>
 
@@ -209,7 +191,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
 
       </div>
 
-      {/* Room Detail Modal */}
+      {/* Modal Detail */}
       <RoomModal
         room={selectedRoom}
         onClose={() => setSelectedRoom(null)}

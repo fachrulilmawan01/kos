@@ -1,91 +1,57 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
+import { ChevronDown, MessageCircle } from 'lucide-react';
 import { FAQS, FAQ, KOS_INFO } from '../data/kosData';
 import { createWhatsAppUrl } from '../utils/formatters';
 
 export const FAQSection: React.FC = () => {
-  const [openId, setOpenId] = useState<string | null>('f1');
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [openId, setOpenId] = useState<string | null>('1');
 
-  const toggleFAQ = (id: string) => {
+  const toggle = (id: string) => {
     setOpenId(openId === id ? null : id);
   };
 
-  const filteredFaqs = activeCategory === 'all'
-    ? FAQS
-    : FAQS.filter((f) => f.category === activeCategory);
-
   const waAskUrl = createWhatsAppUrl(
     KOS_INFO.whatsappNumber,
-    `Halo Buk Yet, saya ada pertanyaan yang belum tercantum di FAQ website. Boleh minta informasinya?`
+    `Halo Bu Yet, saya mau menanyakan perihal kos yang belum tercantum di FAQ website.`
   );
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-white relative">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-16 sm:py-20 bg-stone-50 border-b border-stone-200/80">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center space-y-3 mb-12">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-700 bg-brand-100/80 px-3 py-1 rounded-full border border-brand-200">
-            Tanya Jawab (FAQ)
+        {/* Header */}
+        <div className="text-center space-y-2 mb-10">
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            Pertanyaan Umum
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            Pertanyaan yang Sering Diajukan
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+            Tanya Jawab Seputar Kos
           </h2>
-          <p className="text-stone-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Temukan jawaban cepat seputar sistem sewa, pembayaran, aturan jam malam, dan prosedur masuk di KOS Buk Yet.
+          <p className="text-stone-600 text-sm">
+            Informasi penting terkait harga, pembayaran, dan aturan sewa di KOS Buk Yet.
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
-          {[
-            { id: 'all', label: 'Semua Pertanyaan' },
-            { id: 'pembayaran', label: 'Pembayaran & Deposit' },
-            { id: 'fasilitas', label: 'Fasilitas & Listrik' },
-            { id: 'aturan', label: 'Aturan & Jam Malam' },
-            { id: 'survei', label: 'Survei & Booking' },
-          ].map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                activeCategory === cat.id
-                  ? 'bg-stone-900 text-white shadow-xs'
-                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Accordion List */}
-        <div className="space-y-3">
-          {filteredFaqs.map((faq: FAQ) => {
+        {/* Accordions */}
+        <div className="space-y-2.5">
+          {FAQS.map((faq: FAQ) => {
             const isOpen = openId === faq.id;
             return (
               <div
                 key={faq.id}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen ? 'bg-brand-50/40 border-brand-300 shadow-xs' : 'bg-stone-50 border-stone-200/80 hover:border-stone-300'
-                }`}
+                className="bg-white rounded-xl border border-stone-200 overflow-hidden shadow-2xs"
               >
                 <button
                   type="button"
-                  onClick={() => toggleFAQ(faq.id)}
-                  className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 focus:outline-none"
+                  onClick={() => toggle(faq.id)}
+                  className="w-full py-3.5 px-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-bold text-stone-900"
                 >
-                  <span className="font-extrabold text-stone-900 text-sm sm:text-base">
-                    {faq.question}
-                  </span>
-                  <div className={`p-1 rounded-full shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-brand-100 text-brand-800' : 'text-stone-400'}`}>
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
+                  <span>{faq.question}</span>
+                  <ChevronDown className={`w-4 h-4 text-stone-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-brand-100/60 animate-in fade-in duration-200">
+                  <div className="px-4 pb-4 pt-1 text-xs text-stone-600 leading-relaxed border-t border-stone-100">
                     {faq.answer}
                   </div>
                 )}
@@ -94,25 +60,20 @@ export const FAQSection: React.FC = () => {
           })}
         </div>
 
-        {/* Still have questions card */}
-        <div className="mt-12 p-6 rounded-3xl bg-stone-100/80 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-white border border-stone-200 flex items-center justify-center shrink-0 text-brand-600">
-              <HelpCircle className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-bold text-stone-900 text-sm sm:text-base">Masih punya pertanyaan lain?</h4>
-              <p className="text-xs text-stone-500">Buk Yet dengan senang hati menjawab pertanyaan Anda secara langsung.</p>
-            </div>
+        {/* CTA */}
+        <div className="mt-8 p-4 rounded-xl bg-white border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div>
+            <h4 className="text-xs font-bold text-stone-900">Masih ada pertanyaan yang ingin ditanyakan?</h4>
+            <p className="text-[11px] text-stone-500">Ibu Yet siap menjawab langsung via pesan WhatsApp.</p>
           </div>
           <a
             href={waAskUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-xs transition-all shrink-0"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shrink-0"
           >
-            <MessageCircle className="w-4 h-4" />
-            <span>Tanya Langsung Buk Yet</span>
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span>Chat Bu Yet</span>
           </a>
         </div>
 

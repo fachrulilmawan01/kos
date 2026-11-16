@@ -1,14 +1,13 @@
 import React from 'react';
 import { 
-  ShieldCheck, 
-  Wifi, 
-  Clock, 
-  Sparkles, 
-  CheckCircle2, 
   ArrowRight, 
   MapPin, 
   Eye, 
-  Star 
+  ShieldCheck, 
+  Droplets, 
+  Sparkles, 
+  CheckCircle2,
+  BedSingle
 } from 'lucide-react';
 import { KOS_INFO } from '../data/kosData';
 
@@ -19,147 +18,116 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
   return (
-    <section id="beranda" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
-      {/* Background Decorative Blobs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-brand-100/60 to-emerald-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-10 right-0 w-80 h-80 bg-amber-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
-
+    <section id="beranda" className="pt-28 pb-16 sm:pt-32 sm:pb-20 bg-stone-50 border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Headlines & CTA */}
+          {/* Left: Text & Actions */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 shadow-xs">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-semibold text-emerald-800 tracking-wide">
-                Tersedia Kamar Siap Huni Bulan Ini
-              </span>
-              <span className="text-emerald-300">|</span>
-              <span className="text-xs font-medium text-stone-600 flex items-center gap-1">
-                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" /> 4.9 Rating
-              </span>
+            
+            {/* Clean Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-stone-200 text-xs font-semibold text-stone-700 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>{KOS_INFO.typeBadge} • Kalumbuk, Kuranji, Kota Padang</span>
             </div>
 
-            {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.15]">
-              Hunian Kost Nyaman & Aman di{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-brand-700">
-                KOS Buk Yet
-              </span>
-            </h1>
+            {/* Title */}
+            <div className="space-y-2">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-[1.2]">
+                Hunian Tenang & Nyaman di{' '}
+                <span className="text-emerald-700">KOS Buk Yet</span>
+              </h1>
+              <p className="text-base sm:text-lg font-medium text-stone-700">
+                Pilihan Kamar <span className="font-bold text-stone-900">1 Bed & 2 Bed</span> — Harga Mulai <span className="font-extrabold text-emerald-700">Rp 350.000</span>/bulan.
+              </p>
+            </div>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Pilihan tempat tinggal ideal bagi mahasiswa & pekerja di kawasan strategis Lowokwaru, Malang. Fasilitas kamar lengkap dengan AC, WiFi kencang 150 Mbps, dapur bersama, dan suasana kekeluargaan yang asri.
+            {/* Description */}
+            <p className="text-stone-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Tempat tinggal ideal bagi mahasiswa dan pekerja di Padang. Lingkungan asri, bebas bising kendaraan, air bersih lancar melimpah, dan akses pagar fleksibel yang aman.
             </p>
 
-            {/* Highlights Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 border border-stone-200/70 shadow-xs">
-                <Wifi className="w-4 h-4 text-brand-600 shrink-0" />
-                <span className="text-xs font-medium text-stone-800">Free WiFi 150 Mbps</span>
+            {/* Clean Value Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 pt-1">
+              <div className="p-3 rounded-xl bg-white border border-stone-200 shadow-2xs text-left">
+                <BedSingle className="w-4 h-4 text-emerald-600 mb-1" />
+                <p className="text-xs font-bold text-stone-900">1 Bed / 2 Bed</p>
+                <p className="text-[11px] text-stone-500">Mulai Rp 350rb/bln</p>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 border border-stone-200/70 shadow-xs">
-                <Clock className="w-4 h-4 text-brand-600 shrink-0" />
-                <span className="text-xs font-medium text-stone-800">Akses Bebas 24 Jam</span>
+
+              <div className="p-3 rounded-xl bg-white border border-stone-200 shadow-2xs text-left">
+                <Droplets className="w-4 h-4 text-blue-600 mb-1" />
+                <p className="text-xs font-bold text-stone-900">Free Air Bersih</p>
+                <p className="text-[11px] text-stone-500">Jernih & gratis</p>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 border border-stone-200/70 shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-brand-600 shrink-0" />
-                <span className="text-xs font-medium text-stone-800">CCTV & One Gate</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 border border-stone-200/70 shadow-xs">
-                <Sparkles className="w-4 h-4 text-brand-600 shrink-0" />
-                <span className="text-xs font-medium text-stone-800">Dapur & Dispenser</span>
+
+              <div className="p-3 rounded-xl bg-white border border-stone-200 shadow-2xs text-left col-span-2 sm:col-span-1">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 mb-1" />
+                <p className="text-xs font-bold text-stone-900">Parkir Motor Aman</p>
+                <p className="text-[11px] text-stone-500">Halaman berpagar</p>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
               <button
                 onClick={onExploreRooms}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-bold text-white bg-gradient-to-r from-emerald-600 to-brand-700 hover:from-emerald-700 hover:to-brand-800 rounded-xl shadow-lg shadow-emerald-700/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-sm shadow-xs transition-colors"
               >
-                <span>Lihat Pilihan Kamar</span>
+                <span>Lihat Tipe Kamar & Tarif</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
                 onClick={onOpenSurvey}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-bold text-stone-800 bg-white hover:bg-stone-50 border border-stone-300 rounded-xl shadow-xs transition-all hover:border-stone-400"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-stone-100 text-stone-800 font-bold text-sm border border-stone-300 transition-colors"
               >
-                <Eye className="w-4 h-4 text-brand-600" />
-                <span>Jadwalkan Survei Lokasi</span>
+                <Eye className="w-4 h-4 text-emerald-700" />
+                <span>Jadwal Survei Lokasi</span>
               </button>
             </div>
 
-            {/* Quick Guarantees */}
-            <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 text-xs text-stone-500">
+            {/* Micro guarantees */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs text-stone-500 pt-1">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Tanpa Biaya Makelar
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Air & WiFi Gratis
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Bebas Iuran Sampah
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Pengelola Responsif
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Dekat Jalur By Pass
               </span>
             </div>
+
           </div>
 
-          {/* Right Column: Hero Visual Showcase */}
-          <div className="lg:col-span-5 relative">
+          {/* Right: Clean Image Presentation */}
+          <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Image Card with Soft Shadow */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-stone-200 aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/5]">
+              <div className="relative rounded-2xl overflow-hidden border border-stone-300 shadow-md bg-stone-200 aspect-[4/3] sm:aspect-[1/1]">
                 <img
-                  src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1200&q=85"
-                  alt="Kamar Tidur Nyaman KOS Buk Yet"
-                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                  loading="eager"
+                  src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80"
+                  alt="Kamar KOS Buk Yet Padang"
+                  className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent" />
                 
-                {/* Gradient Overlay at Bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-                {/* Bottom Photo Overlay Info */}
-                <div className="absolute bottom-4 left-4 right-4 text-white p-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20">
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs p-3.5 rounded-xl border border-stone-200">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-xs text-stone-300 font-medium">Tipe Paling Laris</p>
-                      <h4 className="text-sm sm:text-base font-bold text-white">Superior AC Modern</h4>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Hunian Siap Huni</span>
+                      <p className="text-sm font-extrabold text-stone-900">KOS Buk Yet (Putra)</p>
+                      <p className="text-xs text-stone-500 flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-stone-400" /> Kalumbuk, Padang
+                      </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs text-stone-300 block">Mulai dari</span>
-                      <span className="text-sm sm:text-base font-bold text-emerald-400">Rp 1,45 Juta<span className="text-xs font-normal text-stone-300">/bln</span></span>
+                      <span className="text-[11px] text-stone-500 block">Tarif Mulai</span>
+                      <span className="text-base font-extrabold text-stone-900">Rp 350.000<span className="text-xs font-normal text-stone-500">/bln</span></span>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Floating Badge 1: Location Badge */}
-              <div className="absolute -top-4 -left-4 sm:-left-6 bg-white rounded-2xl p-3.5 shadow-xl border border-stone-100 flex items-center gap-3 animate-bounce [animation-duration:3s]">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-amber-600" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-semibold text-stone-500 uppercase tracking-wider">Lokasi Super Dekat</p>
-                  <p className="text-xs sm:text-sm font-bold text-stone-900">4 Menit ke Kampus UB</p>
-                </div>
-              </div>
-
-              {/* Floating Badge 2: Homelike Feeling */}
-              <div className="absolute -bottom-5 -right-3 sm:-right-5 bg-white rounded-2xl p-3.5 shadow-xl border border-stone-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-semibold text-stone-500 uppercase tracking-wider">Sentuhan Ibu Kos</p>
-                  <p className="text-xs sm:text-sm font-bold text-stone-900">Serasa di Rumah Sendiri</p>
                 </div>
               </div>
 

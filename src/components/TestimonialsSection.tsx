@@ -1,71 +1,65 @@
 import React from 'react';
-import { Star, Quote, CheckCircle } from 'lucide-react';
+import { Star, CheckCircle } from 'lucide-react';
 import { TESTIMONIALS, Testimonial } from '../data/kosData';
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section id="testimoni" className="py-16 sm:py-24 bg-stone-50/70 relative">
+    <section id="testimoni" className="py-16 sm:py-20 bg-white border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-14">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-700 bg-brand-100/80 px-3 py-1 rounded-full border border-brand-200">
-            Kata Mereka yang Tinggal di Sini
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center space-y-2 mb-10">
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            Ulasan Penghuni
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            Pengalaman Nyata Penghuni KOS Buk Yet
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+            Pengalaman Tinggal di KOS Buk Yet
           </h2>
-          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-            Dengar langsung cerita mahasiswa dan pekerja yang telah merasakan kenyamanan, ketenangan, dan kehangatan tinggal bersama kami.
+          <p className="text-stone-600 text-sm">
+            Pendapat langsung dari rekan mahasiswa dan pekerja yang telah menyewa kamar di sini.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {TESTIMONIALS.map((item: Testimonial) => (
             <div
               key={item.id}
-              className="p-6 sm:p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+              className="p-5 rounded-xl bg-stone-50 border border-stone-200 space-y-3 flex flex-col justify-between"
             >
-              <div className="space-y-3">
-                {/* Stars and Room Badge */}
+              <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     {[...Array(item.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-700">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-stone-700 border border-stone-200">
                     {item.roomType}
                   </span>
                 </div>
-
-                {/* Comment */}
-                <p className="text-stone-700 text-sm sm:text-base leading-relaxed italic relative">
+                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed italic">
                   "{item.comment}"
                 </p>
               </div>
 
-              {/* Author Info */}
-              <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+              <div className="pt-3 border-t border-stone-200 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
                   <img
                     src={item.avatar}
                     alt={item.name}
-                    className="w-11 h-11 rounded-full object-cover border-2 border-brand-200"
+                    className="w-9 h-9 rounded-full object-cover border border-stone-200"
                     loading="lazy"
                   />
                   <div>
-                    <h4 className="font-extrabold text-stone-900 text-sm">{item.name}</h4>
-                    <p className="text-xs text-stone-500">{item.role}</p>
+                    <h4 className="font-bold text-xs text-stone-900">{item.name}</h4>
+                    <p className="text-[11px] text-stone-500">{item.role}</p>
                   </div>
                 </div>
 
-                <div className="text-right">
-                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700">
-                    <CheckCircle className="w-3 h-3" /> {item.duration}
-                  </span>
-                </div>
+                <span className="text-[10px] font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  {item.duration}
+                </span>
               </div>
             </div>
           ))}
