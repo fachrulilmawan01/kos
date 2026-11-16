@@ -9,6 +9,7 @@ Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (
   - **1 Kamar 1 Orang**: **Rp 700.000 / bulan** (Privat 1 orang)
   - **1 Kamar 2 Orang**: **Rp 350.000 / bulan / orang** (Total Rp 700.000 / kamar berdua)
 - 💰 **Tarif Sewa**: Mulai dari **Rp 350.000 / bulan / orang**
+- ⚡ **Highlight Fasilitas**: **Free Air, Listrik & WiFi** (All-in Termasuk dalam Sewa)
 - 📱 **Kontak WhatsApp**: [+62 812-7772-5709](https://wa.me/6281277725709)
 
 ---

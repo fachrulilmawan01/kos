@@ -4,7 +4,10 @@ import {
   Check, 
   MessageCircle, 
   Tag, 
-  ShieldCheck 
+  ShieldCheck,
+  Zap,
+  Droplets,
+  Wifi
 } from 'lucide-react';
 import { ROOM_TYPES, KOS_INFO } from '../data/kosData';
 import { formatRupiah, createWhatsAppUrl } from '../utils/formatters';
@@ -13,13 +16,6 @@ export const CostCalculator: React.FC = () => {
   const [selectedRoomId, setSelectedRoomId] = useState<string>(ROOM_TYPES[0].id);
   const [durationMonths, setDurationMonths] = useState<number>(1);
   const [occupancyMode, setOccupancyMode] = useState<'per-kamar' | 'per-orang'>('per-orang');
-  const [addons, setAddons] = useState<{
-    magicCom: boolean;
-    fanMini: boolean;
-  }>({
-    magicCom: false,
-    fanMini: false,
-  });
 
   const selectedRoom = ROOM_TYPES.find((r) => r.id === selectedRoomId) || ROOM_TYPES[0];
 
@@ -28,29 +24,18 @@ export const CostCalculator: React.FC = () => {
   if (durationMonths === 6) discountAmount = 100000;
   else if (durationMonths === 12) discountAmount = 300000;
 
-  const monthlyAddons = 
-    (addons.magicCom ? 20000 : 0) +
-    (addons.fanMini ? 15000 : 0);
-
   // If user selected 2-bed and chooses "per-orang" mode, calculate Rp 350.000/mo
   const baseMonthlyPrice = (selectedRoom.bedCount === '2-bed' && occupancyMode === 'per-orang')
     ? (selectedRoom.pricePerPerson || 350000)
     : selectedRoom.priceMonthly;
 
   const baseTotal = baseMonthlyPrice * durationMonths;
-  const discountedRent = Math.max(0, baseTotal - (occupancyMode === 'per-orang' && selectedRoom.bedCount === '2-bed' ? discountAmount / 2 : discountAmount));
-  const totalAddons = monthlyAddons * durationMonths;
-  const grandTotal = discountedRent + totalAddons;
-
-  const addonsSummary = [
-    addons.magicCom ? 'Magic Com Pribadi' : null,
-    addons.fanMini ? 'Kipas Angin Tambahan' : null,
-  ].filter(Boolean).join(', ') || 'Tanpa Tambahan Alat Elektronik';
+  const grandTotal = Math.max(0, baseTotal - (occupancyMode === 'per-orang' && selectedRoom.bedCount === '2-bed' ? discountAmount / 2 : discountAmount));
 
   const proposalMessage = `Halo Bu Yet, saya mahasiswa ingin bertanya estimasi sewa KOS Buk Yet (dekat Univ. Adzkia Padang):
 - Pilihan Unit: ${selectedRoom.name} ${selectedRoom.bedCount === '2-bed' ? `(${occupancyMode === 'per-orang' ? 'Hitungan Per Orang Rp 350rb' : 'Hitungan 1 Kamar Rp 700rb'})` : ''}
 - Durasi Sewa: ${durationMonths} Bulan
-- Tambahan Alat: ${addonsSummary}
+- Fasilitas: Free Air, Listrik & WiFi (All-in Termasuk)
 - Estimasi Biaya: ${formatRupiah(grandTotal)}
 
 Apakah unit kamar masih ada yang kosong? Terima kasih!`;
@@ -167,37 +152,41 @@ Apakah unit kamar masih ada yang kosong? Terima kasih!`;
                 </div>
               </div>
 
-              {/* Optional addons */}
+              {/* Free Included Utilities Showcase */}
               <div>
                 <label className="block text-xs font-black text-gray-900 uppercase tracking-wider mb-2">
-                  3. Peralatan Elektronik Pribadi (Opsional)
+                  3. Fasilitas Sudah Termasuk (All-in Free)
                 </label>
-                <div className="space-y-2">
-                  <label className="flex items-center justify-between p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50 text-xs">
-                    <div className="flex items-center gap-2.5">
-                      <input
-                        type="checkbox"
-                        checked={addons.magicCom}
-                        onChange={(e) => setAddons({ ...addons, magicCom: e.target.checked })}
-                        className="rounded text-brand-600 focus:ring-brand-500"
-                      />
-                      <span className="font-semibold text-gray-800">Membawa Magic Com Pribadi</span>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-200/90 text-left">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <Droplets className="w-4 h-4 text-blue-500 shrink-0" />
+                      <span className="text-xs font-black text-gray-900">Free Air</span>
                     </div>
-                    <span className="font-bold text-gray-900">+Rp 20.000/bln</span>
-                  </label>
+                    <span className="text-[10px] font-extrabold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md inline-block">
+                      100% GRATIS
+                    </span>
+                  </div>
 
-                  <label className="flex items-center justify-between p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50 text-xs">
-                    <div className="flex items-center gap-2.5">
-                      <input
-                        type="checkbox"
-                        checked={addons.fanMini}
-                        onChange={(e) => setAddons({ ...addons, fanMini: e.target.checked })}
-                        className="rounded text-brand-600 focus:ring-brand-500"
-                      />
-                      <span className="font-semibold text-gray-800">Membawa Kipas Angin Tambahan</span>
+                  <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-200/90 text-left">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <Zap className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
+                      <span className="text-xs font-black text-gray-900">Free Listrik</span>
                     </div>
-                    <span className="font-bold text-gray-900">+Rp 15.000/bln</span>
-                  </label>
+                    <span className="text-[10px] font-extrabold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md inline-block">
+                      100% GRATIS
+                    </span>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-200/90 text-left">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <Wifi className="w-4 h-4 text-emerald-500 shrink-0" />
+                      <span className="text-xs font-black text-gray-900">Free WiFi</span>
+                    </div>
+                    <span className="text-[10px] font-extrabold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md inline-block">
+                      100% GRATIS
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -225,16 +214,18 @@ Apakah unit kamar masih ada yang kosong? Terima kasih!`;
                   </div>
                 )}
 
-                {totalAddons > 0 && (
-                  <div className="flex justify-between text-gray-600">
-                    <span>Tambahan Elektronik:</span>
-                    <span className="font-bold text-gray-900">+{formatRupiah(totalAddons)}</span>
-                  </div>
-                )}
+                <div className="flex justify-between text-gray-600">
+                  <span>Air, Listrik & WiFi:</span>
+                  <span className="font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    Rp 0 (GRATIS)
+                  </span>
+                </div>
 
                 <div className="flex justify-between text-gray-600">
-                  <span>Air Bersih & Sampah:</span>
-                  <span className="font-bold text-brand-600">GRATIS</span>
+                  <span>Iuran Kebersihan Sampah:</span>
+                  <span className="font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    Rp 0 (GRATIS)
+                  </span>
                 </div>
 
                 <div className="pt-3 border-t border-gray-200 flex justify-between items-baseline">

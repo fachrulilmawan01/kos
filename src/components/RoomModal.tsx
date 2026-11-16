@@ -11,7 +11,8 @@ import {
   ChevronRight, 
   Info, 
   Users,
-  MapPin
+  MapPin,
+  Zap
 } from 'lucide-react';
 import { RoomType, KOS_INFO } from '../data/kosData';
 import { formatRupiah, createWhatsAppUrl } from '../utils/formatters';
@@ -120,6 +121,21 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
 
             <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-full text-xs font-black text-gray-900 shadow-xs">
               Sisa {room.availableRooms} Kamar
+            </div>
+          </div>
+
+          {/* Free Air, Listrik, WiFi Highlight Banner */}
+          <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/90 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Zap className="w-5 h-5 fill-current" />
+            </div>
+            <div>
+              <p className="text-xs font-black text-amber-950 uppercase tracking-wide">
+                ⚡ Highlight: Free Air, Listrik & WiFi
+              </p>
+              <p className="text-[11px] text-amber-800 font-medium">
+                Sudah termasuk (all-in) dalam biaya sewa bulanan, tanpa biaya tagihan ekstra.
+              </p>
             </div>
           </div>
 

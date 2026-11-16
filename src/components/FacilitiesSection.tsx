@@ -5,19 +5,25 @@ import {
   UtensilsCrossed, 
   Sun, 
   Sparkles, 
-  CheckCircle2 
+  CheckCircle2,
+  Zap,
+  Wifi
 } from 'lucide-react';
 import { GENERAL_FACILITIES, Facility } from '../data/kosData';
 
 export const FacilitiesSection: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 text-brand-500" />;
       case 'Droplets':
         return <Droplets className="w-5 h-5 text-blue-500" />;
+      case 'Zap':
+        return <Zap className="w-5 h-5 text-amber-500" />;
+      case 'Wifi':
+        return <Wifi className="w-5 h-5 text-emerald-500" />;
+      case 'ShieldCheck':
+        return <ShieldCheck className="w-5 h-5 text-brand-500" />;
       case 'UtensilsCrossed':
-        return <UtensilsCrossed className="w-5 h-5 text-amber-500" />;
+        return <UtensilsCrossed className="w-5 h-5 text-amber-600" />;
       case 'Sun':
         return <Sun className="w-5 h-5 text-orange-500" />;
       default:
@@ -54,7 +60,11 @@ export const FacilitiesSection: React.FC = () => {
                   {getIcon(facility.iconName)}
                 </div>
                 {facility.badge && (
-                  <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-700 border border-gray-200">
+                  <span className={`text-[10px] font-black px-2.5 py-0.5 rounded-full border ${
+                    facility.badge === 'FREE'
+                      ? 'bg-amber-100 text-amber-800 border-amber-300 font-extrabold'
+                      : 'bg-gray-100 text-gray-700 border-gray-200'
+                  }`}>
                     {facility.badge}
                   </span>
                 )}

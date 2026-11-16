@@ -10,7 +10,10 @@ import {
   ShieldCheck, 
   Clock, 
   Sparkles,
-  Eye
+  Eye,
+  Zap,
+  Wifi,
+  Image as ImageIcon
 } from 'lucide-react';
 import { KOS_INFO } from '../data/kosData';
 
@@ -21,6 +24,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
   const [selectedBedFilter, setSelectedBedFilter] = useState<'all' | '1-bed' | '2-bed'>('all');
+  const [activeHeroImage, setActiveHeroImage] = useState<string>('/images/kos-bu-yett-kamar-maps.jpg');
 
   const handleFilterAndScroll = (type: 'all' | '1-bed' | '2-bed') => {
     setSelectedBedFilter(type);
@@ -42,6 +46,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
             
             {/* Pill Badges in Modern style */}
             <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500 text-white text-xs font-black shadow-xs">
+                <Zap className="w-3.5 h-3.5 fill-current" />
+                <span>HIGHLIGHT: FREE AIR, LISTRIK & WIFI</span>
+              </span>
+
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500 text-white text-xs font-black shadow-xs">
                 <GraduationCap className="w-3.5 h-3.5" />
                 <span>{KOS_INFO.targetAudience}</span>
@@ -137,46 +146,71 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
 
             {/* 4 Trust Highlights */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-left">
-              <div className="flex items-center gap-2 text-xs font-bold text-gray-700">
+              <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
+                <Zap className="w-4 h-4 text-amber-500 shrink-0 fill-amber-500/20" />
+                <span>Free Listrik</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
+                <Droplets className="w-4 h-4 text-blue-500 shrink-0 fill-blue-500/20" />
+                <span>Free Air Bersih</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
+                <Wifi className="w-4 h-4 text-emerald-500 shrink-0" />
+                <span>Free WiFi Cepat</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
                 <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0" />
                 <span>Tanpa Biaya Admin</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-bold text-gray-700">
-                <Droplets className="w-4 h-4 text-blue-500 shrink-0" />
-                <span>Air Bersih Gratis</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-bold text-gray-700">
-                <ShieldCheck className="w-4 h-4 text-brand-500 shrink-0" />
-                <span>Parkir Motor Aman</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-bold text-gray-700">
-                <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
-                <span>Lingkungan Tenang</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Hero Visual Card */}
+          {/* Right Column: Hero Visual Card with Real Room Photo */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               <div className="relative rounded-3xl overflow-hidden border border-gray-300 shadow-xl bg-gray-200 aspect-[4/3] sm:aspect-[1/1]">
                 <img
-                  src="/images/kos-bu-yett-depan.jpg"
+                  src={activeHeroImage}
                   alt="KOS Buk Yet - Kamar Kost Mahasiswa Pria Dekat Universitas Adzkia"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent" />
 
-                {/* Top Overlay Badge */}
-                <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-black bg-brand-500 text-white shadow-xs">
-                    KOST STRATEGIS
+                {/* Top Overlay Badges */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 flex-wrap">
+                  <span className="px-3 py-1 rounded-full text-xs font-black bg-amber-500 text-white shadow-xs flex items-center gap-1">
+                    <Zap className="w-3.5 h-3.5 fill-current" />
+                    FREE AIR, LISTRIK & WIFI
                   </span>
-                  <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-white text-gray-900 border border-gray-200 shadow-2xs">
-                    400m ke Univ. Adzkia
+                  <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-white/95 text-gray-900 border border-gray-200 shadow-2xs backdrop-blur-xs">
+                    400m ke Adzkia
                   </span>
+                </div>
+
+                {/* Photo Switcher Pill */}
+                <div className="absolute top-14 right-3 bg-black/60 backdrop-blur-xs p-1 rounded-xl flex items-center gap-1 border border-white/20">
+                  <button
+                    onClick={() => setActiveHeroImage('/images/kos-bu-yett-kamar-maps.jpg')}
+                    className={`px-2.5 py-1 rounded-lg text-[10px] font-black transition-colors ${
+                      activeHeroImage === '/images/kos-bu-yett-kamar-maps.jpg'
+                        ? 'bg-brand-500 text-white'
+                        : 'text-gray-200 hover:text-white'
+                    }`}
+                  >
+                    Foto Kamar
+                  </button>
+                  <button
+                    onClick={() => setActiveHeroImage('/images/kos-bu-yett-depan.jpg')}
+                    className={`px-2.5 py-1 rounded-lg text-[10px] font-black transition-colors ${
+                      activeHeroImage === '/images/kos-bu-yett-depan.jpg'
+                        ? 'bg-brand-500 text-white'
+                        : 'text-gray-200 hover:text-white'
+                    }`}
+                  >
+                    Tampak Depan
+                  </button>
                 </div>
 
                 {/* Bottom Overlay Info Card */}

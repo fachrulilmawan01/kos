@@ -6,7 +6,8 @@ import {
   Eye, 
   Users, 
   MapPin, 
-  GraduationCap
+  GraduationCap,
+  Zap
 } from 'lucide-react';
 import { ROOM_TYPES, RoomType, KOS_INFO } from '../data/kosData';
 import { formatRupiah, createWhatsAppUrl } from '../utils/formatters';
@@ -116,8 +117,9 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     <span className="px-3 py-1 rounded-lg text-[10px] font-black bg-gray-900 text-white shadow-xs">
                       {room.bedCount === '1-bed' ? '1 KAMAR 1 ORANG' : '1 KAMAR 2 ORANG'}
                     </span>
-                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white text-gray-900 border border-gray-200 shadow-2xs">
-                      {room.tag}
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-black bg-amber-500 text-white shadow-xs flex items-center gap-1">
+                      <Zap className="w-3 h-3 fill-current" />
+                      FREE AIR, LISTRIK & WIFI
                     </span>
                   </div>
 
@@ -152,6 +154,12 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     <p className="text-xs text-gray-600 mt-1 line-clamp-2 leading-relaxed">
                       {room.description}
                     </p>
+
+                    {/* Free Utilities Highlight Pill */}
+                    <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-black">
+                      <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
+                      <span>Free Air, Listrik & WiFi (Termasuk)</span>
+                    </div>
 
                     {/* Features checklist pills */}
                     <div className="mt-4 pt-3 border-t border-gray-100 space-y-2">

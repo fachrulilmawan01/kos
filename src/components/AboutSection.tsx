@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Droplets, Sparkles, CheckCircle2, GraduationCap, MapPin } from 'lucide-react';
+import { ShieldCheck, Droplets, Sparkles, CheckCircle2, GraduationCap, MapPin, Zap } from 'lucide-react';
 import { KOS_INFO } from '../data/kosData';
 
 export const AboutSection: React.FC = () => {
@@ -39,7 +39,7 @@ export const AboutSection: React.FC = () => {
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
-                <span><strong>Fasilitas Esensial Terpenuhi:</strong> Air bersih melimpah tanpa biaya tambahan, tempat jemuran luas, dan parkir motor aman.</span>
+                <span><strong>Highlight Free Air, Listrik & WiFi:</strong> Sudah all-in termasuk dalam biaya sewa bulanan, tanpa pusing memikirkan tagihan utilitas terpisah.</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
@@ -68,12 +68,12 @@ export const AboutSection: React.FC = () => {
                 <p className="text-[11px] text-gray-500 leading-relaxed">Jarak ±400 meter di area Kalumbuk Kuranji.</p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-brand-300 transition-colors">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-1">
-                  <Droplets className="w-5 h-5" />
+              <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-1.5 shadow-xs hover:border-amber-300 transition-colors">
+                <div className="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700 mb-1">
+                  <Zap className="w-5 h-5 fill-current" />
                 </div>
-                <h4 className="text-xs font-black text-gray-900">Air Bersih Gratis</h4>
-                <p className="text-[11px] text-gray-500 leading-relaxed">Air jernih lancar setiap hari untuk kebutuhan mahasiswa.</p>
+                <h4 className="text-xs font-black text-gray-900">Free Air, Listrik, WiFi</h4>
+                <p className="text-[11px] text-gray-600 leading-relaxed">All-in bebas biaya ekstra untuk menunjang kelancaran studi.</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-brand-300 transition-colors">

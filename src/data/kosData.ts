@@ -72,7 +72,7 @@ export const KOS_INFO = {
     { label: "Ke Kampus Adzkia", value: "2-3 Menit", unit: "Sangat Dekat" },
     { label: "1 Kamar 2 Orang", value: "350 Ribu", unit: "/orang/bln" },
     { label: "1 Kamar 1 Orang", value: "700 Ribu", unit: "/bulan" },
-    { label: "Kategori", value: "Mahasiswa", unit: "Pria Saja" },
+    { label: "Highlight Spesial", value: "Free All-In", unit: "Air, Listrik, WiFi" },
   ]
 };
 
@@ -92,21 +92,21 @@ export const ROOM_TYPES: RoomType[] = [
     totalRooms: 6,
     description: "Kamar privat penuh untuk 1 orang mahasiswa. Memberikan keleluasaan, privasi tinggi, dan ketenangan optimal untuk fokus belajar, mengerjakan tugas, serta istirahat tanpa gangguan.",
     features: [
+      "⚡ Free Air, Listrik & WiFi (All-in Termasuk)",
       "1 Tempat Tidur Single + Kasur Empuk",
       "Meja Belajar Kayu + Kursi Nyaman",
       "Lemari Pakaian Pribadi",
-      "Ventilasi & Jendela Sirkulasi Udara Baik",
+      "Ventilasi & Jendela Sirkulasi Udara Segar",
       "Stopkontak Mandiri untuk Laptop & HP",
       "Kamar Mandi Bersih & Terawat",
-      "Gratis Air Bersih Melimpah & Iuran Sampah",
     ],
-    mainImage: "/images/kos-bu-yett-depan.jpg",
+    mainImage: "/images/kos-bu-yett-kamar-maps.jpg",
     gallery: [
+      "/images/kos-bu-yett-kamar-maps.jpg",
       "/images/kos-bu-yett-depan.jpg",
-      "/images/kos-bu-yett-kamar-1.jpg",
       "/images/kos-bu-yett-kamar-2.jpg"
     ],
-    includedUtilities: ["Air Bersih Sumur/PDAM Jernih Gratis", "Bebas Iuran Sampah Lingkungan", "Parkir Motor Berpagar Aman"]
+    includedUtilities: ["Free Air Bersih Melimpah", "Free Listrik", "Free WiFi Cepat", "Bebas Iuran Sampah", "Parkir Motor Berpagar"]
   },
   {
     id: "1-kamar-2-orang",
@@ -124,38 +124,52 @@ export const ROOM_TYPES: RoomType[] = [
     totalRooms: 6,
     description: "Kamar lega untuk 2 orang mahasiswa (bisa bersama teman satu kampus / seangkatan). Tarif sangat ekonomis, hanya Rp 350.000 per orang per bulan (total Rp 700.000 / kamar).",
     features: [
+      "⚡ Free Air, Listrik & WiFi (All-in Termasuk)",
       "2 Tempat Tidur / Kasur Mandiri (Twin Bed)",
       "2 Meja Belajar + 2 Kursi Pribadi",
       "2 Lemari Pakaian Mandiri",
       "Kamar Luas, Lega & Sirkulasi Segar",
       "Stopkontak Mandiri di Sisi Setiap Kasur",
       "Kamar Mandi Bersih & Terawat",
-      "Gratis Air Bersih Melimpah & Iuran Sampah",
     ],
-    mainImage: "/images/kos-bu-yett-kamar-2.jpg",
+    mainImage: "/images/kos-bu-yett-kamar-maps.jpg",
     gallery: [
-      "/images/kos-bu-yett-kamar-2.jpg",
+      "/images/kos-bu-yett-kamar-maps.jpg",
       "/images/kos-bu-yett-depan.jpg",
-      "/images/kos-bu-yett-kamar-1.jpg"
+      "/images/kos-bu-yett-kamar-2.jpg"
     ],
-    includedUtilities: ["Air Bersih Melimpah Gratis", "Iuran Sampah & Kebersihan", "Slot Parkir 2 Motor Berpagar"]
+    includedUtilities: ["Free Air Bersih Melimpah", "Free Listrik", "Free WiFi Cepat", "Bebas Iuran Sampah", "Parkir Motor Berpagar"]
   }
 ];
 
 export const GENERAL_FACILITIES: Facility[] = [
+  {
+    id: "free-air",
+    title: "Free Air Bersih Melimpah",
+    description: "Pasokan air sumur/PDAM bersih, segar, dan tidak berbau untuk mandi serta mencuci tanpa tagihan tambahan.",
+    iconName: "Droplets",
+    badge: "FREE"
+  },
+  {
+    id: "free-listrik",
+    title: "Free Listrik",
+    description: "Bebas tagihan listrik bulanan untuk kebutuhan lampu, charger gadget, dan laptop kuliah.",
+    iconName: "Zap",
+    badge: "FREE"
+  },
+  {
+    id: "free-wifi",
+    title: "Free WiFi Internet Cepat",
+    description: "Akses internet WiFi lancar untuk mendukung tugas perkuliahan, streaming materi, dan komunikasi.",
+    iconName: "Wifi",
+    badge: "FREE"
+  },
   {
     id: "parkir",
     title: "Parkir Motor Aman & Berpagar",
     description: "Halaman parkir motor tertutup gerbang di area dalam kos, aman dan terlindung.",
     iconName: "ShieldCheck",
     badge: "Keamanan"
-  },
-  {
-    id: "air-bersih",
-    title: "Air Bersih Jernih & Gratis",
-    description: "Pasokan air sumur/PDAM bersih, segar, dan tidak berbau untuk mandi serta mencuci tanpa tagihan tambahan.",
-    iconName: "Droplets",
-    badge: "Bebas Pakai"
   },
   {
     id: "dapur",
@@ -260,8 +274,8 @@ export const FAQS: FAQ[] = [
   },
   {
     id: "4",
-    question: "Apakah air dan sampah sudah termasuk dalam biaya bulanan?",
-    answer: "Ya, penggunaan air bersih sehari-hari dan iuran kebersihan sampah lingkungan sudah gratis dan termasuk ke dalam biaya sewa bulanan."
+    question: "Apakah air, listrik, dan WiFi sudah termasuk dalam biaya sewa?",
+    answer: "Ya! KOS Buk Yet memberikan fasilitas Free Air Bersih, Free Listrik, dan Free WiFi Internet yang sudah all-in termasuk dalam tarif sewa bulanan tanpa ada tagihan tambahan."
   },
   {
     id: "5",

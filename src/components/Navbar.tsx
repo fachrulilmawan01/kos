@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Menu, X, Calendar, MessageCircle, MapPin, GraduationCap, ArrowRight } from 'lucide-react';
+import { Home, Menu, X, Calendar, MessageCircle, MapPin, GraduationCap, ArrowRight, Zap } from 'lucide-react';
 import { KOS_INFO } from '../data/kosData';
 import { createWhatsAppUrl } from '../utils/formatters';
 
@@ -44,7 +44,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
               <GraduationCap className="w-3.5 h-3.5" /> Khusus Mahasiswa Pria
             </span>
             <span className="text-gray-500 hidden sm:inline">•</span>
-            <span className="text-gray-300 hidden sm:inline">
+            <span className="inline-flex items-center gap-1 font-black text-amber-300 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-500/30">
+              <Zap className="w-3 h-3 text-amber-400" /> Free Air, Listrik & WiFi
+            </span>
+            <span className="text-gray-500 hidden md:inline">•</span>
+            <span className="text-gray-300 hidden md:inline">
               ±2-3 Menit ke <strong>Universitas Adzkia Padang</strong>
             </span>
           </div>
