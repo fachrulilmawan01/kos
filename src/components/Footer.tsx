@@ -6,7 +6,8 @@ import {
   Clock, 
   ArrowUp, 
   MessageCircle,
-  ExternalLink 
+  ExternalLink,
+  GraduationCap 
 } from 'lucide-react';
 import { KOS_INFO } from '../data/kosData';
 import { createWhatsAppUrl } from '../utils/formatters';
@@ -18,7 +19,7 @@ export const Footer: React.FC = () => {
 
   const waFooterUrl = createWhatsAppUrl(
     KOS_INFO.whatsappNumber,
-    `Halo Bu Yet, saya ingin menanyakan ketersediaan kamar di KOS Buk Yet (Padang).`
+    `Halo Bu Yet, saya mahasiswa yang ingin konsultasi sewa kamar di KOS Buk Yet dekat Universitas Adzkia.`
   );
 
   return (
@@ -34,12 +35,19 @@ export const Footer: React.FC = () => {
                 <Home className="w-4 h-4 text-emerald-600" />
               </div>
               <span className="font-extrabold text-lg text-white">
-                {KOS_INFO.name} ({KOS_INFO.typeBadge})
+                {KOS_INFO.name} ({KOS_INFO.altName})
               </span>
             </div>
+            
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[11px] font-bold">
+              <GraduationCap className="w-3.5 h-3.5" />
+              <span>{KOS_INFO.targetAudience} • Dekat Univ. Adzkia</span>
+            </div>
+
             <p className="text-xs text-stone-400 leading-relaxed max-w-sm">
               {KOS_INFO.subTagline}
             </p>
+
             <div className="pt-1">
               <a
                 href={KOS_INFO.googleMapsUrl}
@@ -47,7 +55,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
               >
-                <span>Lihat di Google Maps</span>
+                <span>Lihat Titik di Google Maps</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -56,7 +64,7 @@ export const Footer: React.FC = () => {
           {/* Col 2 */}
           <div className="lg:col-span-3 space-y-2">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Tipe Kamar
+              Pilihan Kamar Mahasiswa
             </h4>
             <ul className="space-y-1.5 text-xs text-stone-400">
               <li>1 Bed Standar (Mulai Rp 350.000/bln)</li>
@@ -69,12 +77,12 @@ export const Footer: React.FC = () => {
           {/* Col 3 */}
           <div className="lg:col-span-4 space-y-2">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Alamat & Kontak
+              Lokasi & Kontak
             </h4>
             <div className="space-y-2 text-xs text-stone-400">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span>{KOS_INFO.address}</span>
+                <span>{KOS_INFO.address} (±400m ke Univ. Adzkia)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -82,7 +90,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Jam Survei: {KOS_INFO.visitingHours}</span>
+                <span>Pelayanan Survei: {KOS_INFO.visitingHours}</span>
               </div>
             </div>
 
@@ -94,7 +102,7 @@ export const Footer: React.FC = () => {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
-                <span>Hubungi Buk Yet</span>
+                <span>Hubungi Bu Yet Langsung</span>
               </a>
             </div>
           </div>
@@ -103,11 +111,11 @@ export const Footer: React.FC = () => {
 
         {/* Bottom */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
-          <p>© {new Date().getFullYear()} {KOS_INFO.name} ({KOS_INFO.altName}). Hak Cipta Dilindungi.</p>
+          <p>© {new Date().getFullYear()} {KOS_INFO.name} ({KOS_INFO.altName}) - Hunian Mahasiswa Pria. Hak Cipta Dilindungi.</p>
           <button
             onClick={scrollToTop}
             className="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-400 hover:text-white transition-colors"
-            title="Ke atas"
+            title="Kembali ke atas"
           >
             <ArrowUp className="w-4 h-4" />
           </button>

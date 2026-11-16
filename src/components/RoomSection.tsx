@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { 
   Maximize2, 
-  Bed, 
   Check, 
   MessageCircle, 
   Eye, 
   Users,
-  Calendar
+  GraduationCap
 } from 'lucide-react';
 import { ROOM_TYPES, RoomType, KOS_INFO } from '../data/kosData';
 import { formatRupiah, createWhatsAppUrl } from '../utils/formatters';
@@ -28,16 +27,17 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
     <section id="kamar" className="py-16 sm:py-20 bg-white border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center space-y-2.5 mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-            Katalog Kamar
-          </span>
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center space-y-2 mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
+            <GraduationCap className="w-3.5 h-3.5" />
+            <span>Kamar Mahasiswa Pria</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
             Pilihan Kamar 1 Bed & 2 Bed
           </h2>
-          <p className="text-stone-600 text-sm leading-relaxed">
-            Tersedia pilihan kamar untuk 1 orang (Single) maupun 2 orang (Twin Bed berdua), dengan opsi kamar mandi dalam atau luar. Harga terjangkau mulai dari Rp 350.000/bulan.
+          <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
+            Kamar dirancang fungsional untuk mahasiswa: tersedia meja belajar, kasur empuk, stopkontak mandiri, serta pilihan kamar mandi dalam atau luar. Tarif bersahabat mulai Rp 350.000/bulan.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                 : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
             }`}
           >
-            Tipe 2 Bed (Kapasitas 2 Orang)
+            Tipe 2 Bed (Kapasitas 2 Mahasiswa)
           </button>
         </div>
 
@@ -80,7 +80,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
           {filteredRooms.map((room) => {
             const waRoomUrl = createWhatsAppUrl(
               KOS_INFO.whatsappNumber,
-              `Halo Bu Yet, saya mau menanyakan ketersediaan kamar ${room.name} (${formatRupiah(room.priceMonthly)}/bulan). Apakah masih ada yang kosong?`
+              `Halo Bu Yet, saya mahasiswa yang tertarik dengan ${room.name} (${formatRupiah(room.priceMonthly)}/bulan). Apakah kamar masih ada yang kosong?`
             );
 
             return (
@@ -100,7 +100,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                   {/* Badges */}
                   <div className="absolute top-3 left-3 flex items-center gap-2">
                     <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-stone-900 text-white shadow-xs">
-                      {room.bedCount === '1-bed' ? '1 Bed' : '2 Bed'}
+                      {room.bedCount === '1-bed' ? '1 Bed (Single)' : '2 Bed (Twin)'}
                     </span>
                     <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-white text-stone-800 border border-stone-200 shadow-2xs">
                       {room.tag}
@@ -146,7 +146,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                   <div className="pt-4 border-t border-stone-100 space-y-3">
                     <div className="flex items-baseline justify-between">
                       <div>
-                        <span className="text-[11px] text-stone-500 font-medium block">Tarif Sewa:</span>
+                        <span className="text-[11px] text-stone-500 font-medium block">Tarif Mahasiswa:</span>
                         <div className="flex items-baseline gap-1">
                           <span className="text-2xl font-black text-stone-900">
                             {formatRupiah(room.priceMonthly)}
@@ -157,7 +157,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                       
                       {room.bedCount === '2-bed' && (
                         <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                          Hemat patungan berdua
+                          Patungan berdua hemat
                         </span>
                       )}
                     </div>
