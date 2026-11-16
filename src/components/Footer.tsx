@@ -23,29 +23,29 @@ export const Footer: React.FC = () => {
   );
 
   return (
-    <footer className="bg-stone-900 text-stone-300 pt-12 pb-8 border-t border-stone-800">
+    <footer className="bg-[#0f172a] text-gray-300 pt-14 pb-8 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-8 border-b border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-gray-800">
           
-          {/* Col 1 */}
-          <div className="lg:col-span-5 space-y-3">
+          {/* Brand Info in Rukita Style */}
+          <div className="lg:col-span-5 space-y-3.5">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-white text-stone-900 flex items-center justify-center font-bold">
-                <Home className="w-4 h-4 text-emerald-600" />
+              <div className="w-9 h-9 rounded-xl bg-rukita-500 text-white flex items-center justify-center font-black shadow-xs">
+                <Home className="w-5 h-5" />
               </div>
-              <span className="font-extrabold text-lg text-white">
-                {KOS_INFO.name} ({KOS_INFO.altName})
+              <span className="font-extrabold text-xl text-white tracking-tight">
+                KOS <span className="text-rukita-400">Buk Yet</span>
               </span>
             </div>
             
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[11px] font-bold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rukita-950 text-rukita-400 border border-rukita-800 text-xs font-black">
               <GraduationCap className="w-3.5 h-3.5" />
               <span>{KOS_INFO.targetAudience} • Dekat Univ. Adzkia</span>
             </div>
 
-            <p className="text-xs text-stone-400 leading-relaxed max-w-sm">
-              {KOS_INFO.subTagline}
+            <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
+              Hunian kost mahasiswa pria di Kalumbuk, Kuranji, Kota Padang. Lingkungan kondusif untuk belajar, air bersih melimpah, dan tarif sewa bersahabat mulai Rp 350.000/bulan.
             </p>
 
             <div className="pt-1">
@@ -53,44 +53,61 @@ export const Footer: React.FC = () => {
                 href={KOS_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-rukita-400 hover:text-rukita-300 font-bold transition-colors"
               >
-                <span>Lihat Titik di Google Maps</span>
-                <ExternalLink className="w-3 h-3" />
+                <span>Buka Titik di Google Maps</span>
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
-          {/* Col 2 */}
-          <div className="lg:col-span-3 space-y-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Pilihan Kamar Mahasiswa
+          {/* Room Categories */}
+          <div className="lg:col-span-3 space-y-2.5">
+            <h4 className="text-xs font-black text-white uppercase tracking-wider">
+              Tipe Kamar Mahasiswa
             </h4>
-            <ul className="space-y-1.5 text-xs text-stone-400">
-              <li>1 Bed Standar (Mulai Rp 350.000/bln)</li>
-              <li>1 Bed KM Dalam (Rp 450.000/bln)</li>
-              <li>2 Bed Standar - Berdua (Rp 600.000/bln)</li>
-              <li>2 Bed KM Dalam - Berdua (Rp 700.000/bln)</li>
+            <ul className="space-y-2 text-xs text-gray-400">
+              <li>
+                <a href="#kamar" className="hover:text-rukita-300 transition-colors">
+                  1 Bed Standar (Mulai Rp 350.000/bln)
+                </a>
+              </li>
+              <li>
+                <a href="#kamar" className="hover:text-rukita-300 transition-colors">
+                  1 Bed KM Dalam (Rp 450.000/bln)
+                </a>
+              </li>
+              <li>
+                <a href="#kamar" className="hover:text-rukita-300 transition-colors">
+                  2 Bed Standar - Berdua (Rp 600.000/bln)
+                </a>
+              </li>
+              <li>
+                <a href="#kamar" className="hover:text-rukita-300 transition-colors">
+                  2 Bed KM Dalam - Berdua (Rp 700.000/bln)
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Col 3 */}
-          <div className="lg:col-span-4 space-y-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Lokasi & Kontak
+          {/* Location & Contact Details */}
+          <div className="lg:col-span-4 space-y-2.5">
+            <h4 className="text-xs font-black text-white uppercase tracking-wider">
+              Kontak & Alamat Kos
             </h4>
-            <div className="space-y-2 text-xs text-stone-400">
+            
+            <div className="space-y-2 text-xs text-gray-400">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-rukita-400 shrink-0 mt-0.5" />
                 <span>{KOS_INFO.address} (±400m ke Univ. Adzkia)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>WhatsApp: {KOS_INFO.whatsappDisplay}</span>
+                <Phone className="w-4 h-4 text-rukita-400 shrink-0" />
+                <span>WhatsApp: <strong className="text-white">{KOS_INFO.whatsappDisplay}</strong></span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Pelayanan Survei: {KOS_INFO.visitingHours}</span>
+                <Clock className="w-4 h-4 text-rukita-400 shrink-0" />
+                <span>Waktu Survei: {KOS_INFO.visitingHours}</span>
               </div>
             </div>
 
@@ -99,22 +116,22 @@ export const Footer: React.FC = () => {
                 href={waFooterUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white text-xs font-black shadow-xs transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
-                <span>Hubungi Bu Yet Langsung</span>
+                <span>Chat Bu Yet via WhatsApp</span>
               </a>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
-          <p>© {new Date().getFullYear()} {KOS_INFO.name} ({KOS_INFO.altName}) - Hunian Mahasiswa Pria. Hak Cipta Dilindungi.</p>
+        {/* Bottom Credits in Rukita Style */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} {KOS_INFO.name} ({KOS_INFO.altName}) • Desain Terinspirasi Rukita.co</p>
           <button
             onClick={scrollToTop}
-            className="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-400 hover:text-white transition-colors"
+            className="p-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors"
             title="Kembali ke atas"
           >
             <ArrowUp className="w-4 h-4" />

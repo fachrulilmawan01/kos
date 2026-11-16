@@ -1,22 +1,22 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { RULES } from '../data/kosData';
 
 export const RulesSection: React.FC = () => {
   return (
-    <section id="aturan" className="py-16 sm:py-20 bg-stone-50 border-b border-stone-200/80">
+    <section id="aturan" className="py-16 sm:py-20 bg-[#FAF9F6] border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center space-y-2 mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-            Kenyamanan Bersama
+          <span className="text-xs font-black uppercase tracking-wider text-rukita-700 bg-rukita-50 px-3 py-1 rounded-full border border-rukita-200">
+            TATA TERTIB HUNIAN
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
-            Tata Tertib & Norma Hunian
+          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+            Norma & Kenyamanan Bersama
           </h2>
-          <p className="text-stone-600 text-sm">
-            Diterapkan demi memastikan ketertiban, keamanan kendaraan dan barang berharga, serta ketenangan waktu istirahat malam.
+          <p className="text-gray-600 text-xs sm:text-sm">
+            Aturan diterapkan demi menjamin ketenangan waktu belajar, kenyamanan sesama rekan mahasiswa, serta keamanan lingkungan kos.
           </p>
         </div>
 
@@ -25,31 +25,31 @@ export const RulesSection: React.FC = () => {
           {RULES.map((rule) => (
             <div
               key={rule.id}
-              className="p-4 rounded-xl bg-white border border-stone-200 space-y-2 shadow-2xs"
+              className="p-5 rounded-2xl bg-white border border-gray-200 space-y-2 shadow-xs hover:border-rukita-300 transition-colors"
             >
-              <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-lg bg-rukita-50 text-rukita-700 font-black text-xs flex items-center justify-center shrink-0 border border-rukita-200">
                   {rule.id}
                 </span>
-                <h3 className="font-bold text-xs sm:text-sm text-stone-900">
+                <h3 className="font-black text-xs sm:text-sm text-gray-900">
                   {rule.title}
                 </h3>
               </div>
-              <p className="text-xs text-stone-600 leading-relaxed pl-7">
+              <p className="text-xs text-gray-600 leading-relaxed pl-8">
                 {rule.description}
               </p>
             </div>
           ))}
 
-          <div className="p-4 rounded-xl bg-stone-900 text-white space-y-1.5 shadow-2xs">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-              <h3 className="font-bold text-xs sm:text-sm text-white">
-                Kepercayaan Keluarga
+          <div className="p-5 rounded-2xl bg-gray-900 text-white space-y-2 shadow-xs">
+            <div className="flex items-center gap-2.5">
+              <ShieldCheck className="w-5 h-5 text-rukita-400 shrink-0" />
+              <h3 className="font-black text-xs sm:text-sm text-white">
+                Ketenangan Orang Tua
               </h3>
             </div>
-            <p className="text-xs text-stone-300 leading-relaxed pl-7">
-              Orang tua dapat tenang karena kos putra ini mengedepankan etika sopan santun dan lingkungan positif.
+            <p className="text-xs text-gray-300 leading-relaxed pl-7">
+              Orang tua dapat tenang karena lingkungan kos khusus mahasiswa pria ini terjaga, tertib, dan bebas dari pergaulan bebas.
             </p>
           </div>
         </div>

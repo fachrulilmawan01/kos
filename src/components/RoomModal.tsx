@@ -8,9 +8,10 @@ import {
   Calendar, 
   ShieldCheck, 
   ChevronLeft, 
-  ChevronRight,
-  Info,
-  Users
+  ChevronRight, 
+  Info, 
+  Users,
+  MapPin
 } from 'lucide-react';
 import { RoomType, KOS_INFO } from '../data/kosData';
 import { formatRupiah, createWhatsAppUrl } from '../utils/formatters';
@@ -36,35 +37,38 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
 
   const waBookingUrl = createWhatsAppUrl(
     KOS_INFO.whatsappNumber,
-    `Halo Bu Yet, saya tertarik untuk menyewa ${room.name} (${formatRupiah(room.priceMonthly)}/bulan). Apakah kamar ini masih tersedia?`
+    `Halo Bu Yet, saya mahasiswa yang tertarik menyewa ${room.name} (${formatRupiah(room.priceMonthly)}/bulan). Apakah kamar masih tersedia?`
   );
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-150">
       <div 
-        className="relative bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-stone-200 flex flex-col max-h-[90vh]"
+        className="relative bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-gray-200 flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         
-        {/* Header */}
-        <div className="px-5 py-3.5 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+        {/* Header Bar */}
+        <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-[#FAF9F6]">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-stone-900 text-white">
-                {room.bedCount === '1-bed' ? '1 Bed (Single)' : '2 Bed (Twin)'}
+              <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-rukita-500 text-white">
+                {room.bedCount === '1-bed' ? '1 BED (SINGLE)' : '2 BED (TWIN)'}
               </span>
-              <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+              <span className="text-xs font-bold text-rukita-800 bg-rukita-50 px-2.5 py-0.5 rounded-full border border-rukita-200">
                 {room.tag}
               </span>
             </div>
-            <h3 className="text-base sm:text-lg font-extrabold text-stone-900 mt-1">
+            <h3 className="text-base sm:text-lg font-black text-gray-900 mt-1">
               {room.name}
             </h3>
+            <p className="text-[11px] text-gray-500 flex items-center gap-1 mt-0.5 font-medium">
+              <MapPin className="w-3 h-3 text-rukita-500" /> Kalumbuk • ±400m ke Universitas Adzkia Padang
+            </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 text-stone-400 hover:text-stone-700 hover:bg-stone-200 rounded-lg transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-xl transition-colors"
             aria-label="Tutup modal"
           >
             <X className="w-5 h-5" />
@@ -72,10 +76,10 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
         </div>
 
         {/* Scrollable Body */}
-        <div className="overflow-y-auto p-5 space-y-5">
+        <div className="overflow-y-auto p-6 space-y-6">
           
           {/* Gallery Carousel */}
-          <div className="relative rounded-xl overflow-hidden aspect-[16/10] bg-stone-900">
+          <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-900 shadow-md">
             <img
               src={room.gallery[activeImageIndex]}
               alt={`${room.name} foto ${activeImageIndex + 1}`}
@@ -86,26 +90,26 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
                   aria-label="Foto sebelumnya"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
                   aria-label="Foto selanjutnya"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
 
-                <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40">
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40">
                   {room.gallery.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveImageIndex(idx)}
                       className={`h-1.5 rounded-full transition-all ${
-                        activeImageIndex === idx ? 'w-4 bg-white' : 'w-1.5 bg-white/50'
+                        activeImageIndex === idx ? 'w-5 bg-white' : 'w-1.5 bg-white/50'
                       }`}
                       aria-label={`Foto ${idx + 1}`}
                     />
@@ -114,23 +118,25 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
               </>
             )}
 
-            <div className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs px-2.5 py-0.5 rounded text-[11px] font-bold text-stone-800">
+            <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-full text-xs font-black text-gray-900 shadow-xs">
               Sisa {room.availableRooms} Kamar
             </div>
           </div>
 
-          {/* Pricing Highlight */}
-          <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          {/* Pricing Highlight Box in Rukita Style */}
+          <div className="p-4 rounded-2xl bg-rukita-50/70 border border-rukita-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <span className="text-[11px] font-medium text-stone-500 block">Tarif Sewa:</span>
+              <span className="text-[11px] font-bold text-rukita-900 block uppercase tracking-wider">
+                Tarif Mahasiswa
+              </span>
               <div className="flex items-baseline gap-1 mt-0.5">
-                <span className="text-2xl font-black text-stone-900">
+                <span className="text-2xl sm:text-3xl font-black text-gray-900">
                   {formatRupiah(room.priceMonthly)}
                 </span>
-                <span className="text-stone-500 text-xs">/ bulan</span>
+                <span className="text-gray-500 text-xs font-medium">/ bulan</span>
               </div>
               {room.priceYearly && (
-                <p className="text-[11px] text-emerald-800 mt-0.5 font-medium">
+                <p className="text-xs text-rukita-700 mt-1 font-semibold">
                   Sewa tahunan: {formatRupiah(room.priceYearly)} / tahun
                 </p>
               )}
@@ -141,56 +147,56 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
                 href={waBookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white font-extrabold text-xs shadow-xs transition-colors"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>Pesan via WA</span>
+                <MessageCircle className="w-4 h-4" />
+                <span>Pesan Unit via WA</span>
               </a>
               <button
                 onClick={() => {
                   onClose();
                   onOpenSurvey(room.name);
                 }}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white border border-stone-300 hover:bg-stone-100 text-stone-800 font-semibold text-xs transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-bold text-xs transition-colors"
               >
-                <Calendar className="w-3.5 h-3.5 text-stone-600" />
+                <Calendar className="w-4 h-4 text-gray-600" />
                 <span>Survei</span>
               </button>
             </div>
           </div>
 
           {/* Specs */}
-          <div className="grid grid-cols-3 gap-2.5">
-            <div className="p-2.5 rounded-lg bg-stone-50 border border-stone-200 text-left">
-              <Maximize2 className="w-4 h-4 text-stone-500 mb-1" />
-              <p className="text-[10px] text-stone-500">Ukuran</p>
-              <p className="text-xs font-bold text-stone-900">{room.size}</p>
+          <div className="grid grid-cols-3 gap-3">
+            <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-left">
+              <Maximize2 className="w-4 h-4 text-rukita-500 mb-1" />
+              <p className="text-[10px] text-gray-500 font-bold uppercase">Ukuran</p>
+              <p className="text-xs sm:text-sm font-black text-gray-900">{room.size}</p>
             </div>
-            <div className="p-2.5 rounded-lg bg-stone-50 border border-stone-200 text-left">
-              <Bed className="w-4 h-4 text-stone-500 mb-1" />
-              <p className="text-[10px] text-stone-500">Kasur</p>
-              <p className="text-xs font-bold text-stone-900 truncate">{room.bedType}</p>
+            <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-left">
+              <Bed className="w-4 h-4 text-rukita-500 mb-1" />
+              <p className="text-[10px] text-gray-500 font-bold uppercase">Tempat Tidur</p>
+              <p className="text-xs sm:text-sm font-black text-gray-900 truncate">{room.bedType}</p>
             </div>
-            <div className="p-2.5 rounded-lg bg-stone-50 border border-stone-200 text-left">
-              <Users className="w-4 h-4 text-stone-500 mb-1" />
-              <p className="text-[10px] text-stone-500">Kapasitas</p>
-              <p className="text-xs font-bold text-stone-900">{room.capacity}</p>
+            <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-left">
+              <Users className="w-4 h-4 text-rukita-500 mb-1" />
+              <p className="text-[10px] text-gray-500 font-bold uppercase">Kapasitas</p>
+              <p className="text-xs sm:text-sm font-black text-gray-900">{room.capacity}</p>
             </div>
           </div>
 
           {/* Description */}
           <div>
-            <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider mb-1">Deskripsi</h4>
-            <p className="text-stone-600 text-xs leading-relaxed">{room.description}</p>
+            <h4 className="text-xs font-black text-gray-900 uppercase tracking-wider mb-1.5">Deskripsi Unit</h4>
+            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{room.description}</p>
           </div>
 
           {/* Features */}
           <div>
-            <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider mb-2">Fasilitas Dalam Kamar</h4>
+            <h4 className="text-xs font-black text-gray-900 uppercase tracking-wider mb-2.5">Fasilitas Dalam Kamar</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {room.features.map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs text-stone-700">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-xs text-gray-700">
+                  <Check className="w-3.5 h-3.5 text-rukita-500 shrink-0" />
                   <span>{feature}</span>
                 </div>
               ))}
@@ -198,24 +204,24 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
           </div>
 
           {/* Utilities */}
-          <div className="p-3 rounded-lg bg-stone-100/70 border border-stone-200 text-xs text-stone-600 space-y-1">
-            <div className="flex items-center gap-1.5 font-bold text-stone-800">
-              <Info className="w-3.5 h-3.5 text-stone-600" />
-              <span>Sudah Termasuk:</span>
+          <div className="p-3.5 rounded-xl bg-gray-100/80 border border-gray-200 text-xs text-gray-600 space-y-1">
+            <div className="flex items-center gap-1.5 font-bold text-gray-900">
+              <Info className="w-4 h-4 text-rukita-500" />
+              <span>Termasuk Dalam Biaya Sewa:</span>
             </div>
-            <p>{room.includedUtilities.join(' • ')}</p>
+            <p className="pl-5">{room.includedUtilities.join(' • ')}</p>
           </div>
 
         </div>
 
         {/* Footer */}
-        <div className="bg-stone-50 px-5 py-3 border-t border-stone-200 flex items-center justify-between text-xs text-stone-500">
-          <span className="flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Tarif jujur tanpa biaya tersembunyi
+        <div className="bg-[#FAF9F6] px-6 py-3.5 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
+          <span className="flex items-center gap-1.5 font-medium">
+            <ShieldCheck className="w-4 h-4 text-rukita-500" /> Transparan, tanpa biaya makelar
           </span>
           <button
             onClick={onClose}
-            className="text-stone-600 hover:text-stone-900 font-semibold text-xs"
+            className="text-gray-700 hover:text-gray-900 font-bold text-xs"
           >
             Tutup
           </button>

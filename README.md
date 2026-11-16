@@ -1,6 +1,6 @@
 # KOS Buk Yet (Kos Putra Bu Yett)
 
-Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (Kos Putra Bu Yett)** — hunian kos **Khusus Mahasiswa Pria** yang berlokasi sangat dekat dengan **Universitas Adzkia Padang** (Kalumbuk, Kec. Kuranji, Kota Padang, Sumatera Barat).
+Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (Kos Putra Bu Yett)** — hunian kos **Khusus Mahasiswa Pria** yang berlokasi sangat dekat dengan **Universitas Adzkia Padang** (Kalumbuk, Kec. Kuranji, Kota Padang, Sumatera Barat), dengan referensi desain UI dari platform co-living terkemuka **Rukita (rukita.co)**.
 
 - 🎓 **Target Penghuni**: Khusus Mahasiswa Pria (Lingkungan Tenang & Kondusif)
 - 📍 **Lokasi Strategis**: Hanya ±400 meter (±2-3 menit) ke **Universitas Adzkia Padang**
@@ -11,30 +11,16 @@ Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (
 
 ---
 
-## 🌟 Fitur Utama
+## 🎨 Karakteristik Desain (Rukita.co Inspired)
 
-1. **Desain UI Sangat Profesional & Modern**
-   - Mengusung estetika minimalis elegan (*clean & modern*), dengan hierarki tipografi tegas, tata letak rapi, dan kemudahan navigasi bagi calon penghuni mahasiswa maupun orang tua.
-
-2. **Katalog Kamar Mahasiswa (1 Bed & 2 Bed)**
-   - **Tipe 1 Bed (Single Standar)**: Rp 350.000 / bulan (Paling hemat, privat 1 mahasiswa).
-   - **Tipe 1 Bed (KM Dalam)**: Rp 450.000 / bulan (Kamar mandi dalam pribadi, privasi penuh).
-   - **Tipe 2 Bed (Twin Bed Standar)**: Rp 600.000 / bulan (Patungan berdua hanya Rp 300.000/orang per bulan).
-   - **Tipe 2 Bed (KM Dalam)**: Rp 700.000 / bulan (Lega berdua dengan kamar mandi dalam pribadi).
-
-3. **Keunggulan Lokasi Dekat Universitas Adzkia**
-   - Jarak tempuh hanya 2-3 menit dengan sepeda motor atau jalan kaki santai.
-   - Akses mudah ke jalur By Pass Padang, minimarket, fotokopi, dan sentra kuliner mahasiswa Kalumbuk.
-
-4. **Kalkulator Simulasi Sewa Transparan**
-   - Simulasi sewa bulanan, 6 bulan (hemat Rp 100rb), dan tahunan (hemat Rp 300rb).
-   - Tambahan opsi alat elektronik pribadi (magic com, kipas angin).
-   - Tombol pengiriman rincian langsung via WhatsApp ke Bu Yet.
-
-5. **Fasilitas & Tata Tertib Tertib**
-   - Pasokan air bersih jernih gratis tanpa biaya tambahan.
-   - Halaman parkir motor tertutup gerbang berpagar aman.
-   - Aturan khusus pria, jam tenang belajar malam, dan kunci gerbang mandiri bertanggung jawab.
+1. **Palet Warna Ikonik Rukita**:
+   - *Primary Persian Green / Deep Teal* (`#009C96`) dipadukan dengan latar belakang *Spring Wood off-white* (`#FAF9F6`) dan aksen kontras charcoal elegan.
+2. **Signature Hero Search & Filter Widget**:
+   - Widget pencarian instan floating di Hero section untuk memilih tipe kamar (1 Bed / 2 Bed), lokasi kampus Adzkia, dan rentang budget.
+3. **Kartu Kamar Standar Co-Living**:
+   - Tata letak kartu unit bergaya modern dengan badge ketersediaan, tag jarak ke kampus, fasilitas terinci, dan tombol aksi cepat.
+4. **Kalkulator Sewa & Jadwal Survei Instan**:
+   - Simulasi biaya sewa transparan tanpa biaya admin tersembunyi yang langsung terhubung ke WhatsApp Bu Yet.
 
 ---
 
