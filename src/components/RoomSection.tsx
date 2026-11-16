@@ -6,8 +6,6 @@ import {
   Eye, 
   Users, 
   MapPin, 
-  BedSingle,
-  Sparkles,
   GraduationCap
 } from 'lucide-react';
 import { ROOM_TYPES, RoomType, KOS_INFO } from '../data/kosData';
@@ -38,10 +36,10 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
               <span>Pilihan Kamar Mahasiswa Pria</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-              Tipe Kamar 1 Bed & 2 Bed Siap Huni
+              Pilihan Tipe Kamar & Tarif Sewa
             </h2>
             <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-              Semua unit dilengkapi kasur nyaman, meja belajar, lemari pakaian, dan ventilasi sejuk. Berjarak ±400 meter dari kampus Universitas Adzkia Padang.
+              Tersedia opsi <strong>1 Kamar 1 Orang</strong> untuk privasi penuh atau <strong>1 Kamar 2 Orang</strong> yang sangat hemat patungan berdua. Berjarak ±400 meter dari kampus Universitas Adzkia Padang.
             </p>
           </div>
 
@@ -55,7 +53,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              Semua ({ROOM_TYPES.length})
+              Semua Pilihan ({ROOM_TYPES.length})
             </button>
             <button
               onClick={() => setSelectedFilter('1-bed')}
@@ -65,7 +63,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              1 Bed (Mulai 350rb)
+              1 Kamar 1 Orang (700rb)
             </button>
             <button
               onClick={() => setSelectedFilter('2-bed')}
@@ -75,23 +73,31 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              2 Bed (Berdua Hemat)
+              1 Kamar 2 Orang (350rb/org)
             </button>
           </div>
         </div>
 
         {/* Room Listing Grid (Rukita Style Cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {filteredRooms.map((room) => {
+            const displayPriceText = room.pricePerPerson 
+              ? `${formatRupiah(room.pricePerPerson)}`
+              : `${formatRupiah(room.priceMonthly)}`;
+
+            const priceSubtext = room.pricePerPerson
+              ? "/orang/bulan (total Rp 700.000/kamar)"
+              : "/bulan";
+
             const waRoomUrl = createWhatsAppUrl(
               KOS_INFO.whatsappNumber,
-              `Halo Bu Yet, saya mahasiswa yang tertarik dengan ${room.name} (${formatRupiah(room.priceMonthly)}/bulan). Apakah unit ini masih tersedia?`
+              `Halo Bu Yet, saya mahasiswa yang tertarik dengan ${room.name} (${displayPriceText}${priceSubtext}). Apakah unit ini masih tersedia?`
             );
 
             return (
               <div
                 key={room.id}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-rukita-300 transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-rukita-300 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Photo Header */}
                 <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
@@ -107,8 +113,8 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
 
                   {/* Top Badges in Rukita Style */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
-                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-black bg-gray-900 text-white shadow-xs">
-                      {room.bedCount === '1-bed' ? '1 BED (SINGLE)' : '2 BED (TWIN)'}
+                    <span className="px-3 py-1 rounded-lg text-[10px] font-black bg-gray-900 text-white shadow-xs">
+                      {room.bedCount === '1-bed' ? '1 KAMAR 1 ORANG' : '1 KAMAR 2 ORANG'}
                     </span>
                     <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white text-gray-900 border border-gray-200 shadow-2xs">
                       {room.tag}
@@ -131,7 +137,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div>
                     {/* Location Tag */}
                     <div className="flex items-center gap-1 text-[11px] font-semibold text-gray-500 mb-1">
@@ -139,7 +145,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                       <span>Kalumbuk, Kuranji • ±400m ke Universitas Adzkia</span>
                     </div>
 
-                    <h3 className="font-black text-base sm:text-lg text-gray-900 group-hover:text-rukita-600 transition-colors">
+                    <h3 className="font-black text-lg text-gray-900 group-hover:text-rukita-600 transition-colors">
                       {room.name}
                     </h3>
                     
@@ -148,9 +154,9 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     </p>
 
                     {/* Features checklist pills */}
-                    <div className="mt-3.5 pt-3 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {room.features.slice(0, 4).map((f, i) => (
-                        <div key={i} className="flex items-center gap-1.5 text-xs text-gray-700">
+                    <div className="mt-4 pt-3 border-t border-gray-100 space-y-2">
+                      {room.features.slice(0, 5).map((f, i) => (
+                        <div key={i} className="flex items-center gap-2 text-xs text-gray-700">
                           <Check className="w-3.5 h-3.5 text-rukita-500 shrink-0" />
                           <span className="truncate">{f}</span>
                         </div>
@@ -158,7 +164,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     </div>
                   </div>
 
-                  {/* Price & Action Row in Rukita Style */}
+                  {/* Price & Action Row */}
                   <div className="pt-4 border-t border-gray-100 space-y-3">
                     <div className="flex items-baseline justify-between">
                       <div>
@@ -167,15 +173,15 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                         </span>
                         <div className="flex items-baseline gap-1">
                           <span className="text-2xl font-black text-gray-900">
-                            {formatRupiah(room.priceMonthly)}
+                            {displayPriceText}
                           </span>
-                          <span className="text-xs text-gray-500 font-medium">/bulan</span>
+                          <span className="text-xs text-gray-500 font-medium">{priceSubtext}</span>
                         </div>
                       </div>
                       
-                      {room.bedCount === '2-bed' && (
+                      {room.pricePerPerson && (
                         <span className="text-[10px] font-black text-rukita-800 bg-rukita-50 px-2.5 py-1 rounded-md border border-rukita-200">
-                          Patungan hemat berdua
+                          Rp 350.000 / orang
                         </span>
                       )}
                     </div>

@@ -5,7 +5,6 @@ import {
   UtensilsCrossed, 
   Sun, 
   Sparkles, 
-  KeyRound,
   CheckCircle2 
 } from 'lucide-react';
 import { GENERAL_FACILITIES, Facility } from '../data/kosData';
@@ -21,8 +20,6 @@ export const FacilitiesSection: React.FC = () => {
         return <UtensilsCrossed className="w-5 h-5 text-amber-500" />;
       case 'Sun':
         return <Sun className="w-5 h-5 text-orange-500" />;
-      case 'KeyRound':
-        return <KeyRound className="w-5 h-5 text-rukita-500" />;
       default:
         return <Sparkles className="w-5 h-5 text-rukita-500" />;
     }

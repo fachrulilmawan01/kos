@@ -9,11 +9,10 @@ import {
   Droplets, 
   ShieldCheck, 
   Clock, 
-  ArrowRight,
-  Eye,
-  KeyRound
+  Sparkles,
+  Eye
 } from 'lucide-react';
-import { KOS_INFO, ROOM_TYPES } from '../data/kosData';
+import { KOS_INFO } from '../data/kosData';
 
 interface HeroProps {
   onOpenSurvey: () => void;
@@ -61,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
                 <span className="text-rukita-500">Universitas Adzkia</span>
               </h1>
               <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed">
-                Hunian tenang, bersih, dan bebas repot untuk fokus kuliah. Pilihan kamar <strong className="text-gray-900 font-bold">1 Bed & 2 Bed</strong> dengan tarif terjangkau mulai <strong className="text-rukita-600 font-black">Rp 350.000</strong>/bulan.
+                Hunian tenang, bersih, dan bebas repot untuk fokus kuliah di Kalumbuk, Padang. Pilihan <strong className="text-gray-900 font-bold">1 Kamar 1 Orang</strong> (Rp 700.000/bln) atau <strong className="text-gray-900 font-bold">1 Kamar 2 Orang</strong> (Rp 350.000/orang/bln).
               </p>
             </div>
 
@@ -85,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
                 {/* Room Type Selector */}
                 <div className="p-2.5 rounded-xl bg-gray-50 border border-gray-200 text-left">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 block">
-                    Tipe Kamar
+                    Pilihan Kamar
                   </span>
                   <div className="flex items-center gap-1.5 mt-1">
                     <BedSingle className="w-4 h-4 text-rukita-500 shrink-0" />
@@ -94,9 +93,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
                       onChange={(e) => setSelectedBedFilter(e.target.value as any)}
                       className="bg-transparent text-xs font-extrabold text-gray-900 focus:outline-none w-full cursor-pointer"
                     >
-                      <option value="all">Semua (1 & 2 Bed)</option>
-                      <option value="1-bed">1 Bed (Single)</option>
-                      <option value="2-bed">2 Bed (Twin / Berdua)</option>
+                      <option value="all">Semua Tipe Kamar</option>
+                      <option value="1-bed">1 Kamar 1 Orang (700rb)</option>
+                      <option value="2-bed">1 Kamar 2 Orang (350rb/org)</option>
                     </select>
                   </div>
                 </div>
@@ -109,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
                   <div className="flex items-center gap-1.5 mt-1">
                     <Tag className="w-4 h-4 text-rukita-500 shrink-0" />
                     <span className="text-xs font-extrabold text-gray-900">
-                      Mulai Rp 350.000
+                      Mulai Rp 350.000/org
                     </span>
                   </div>
                 </div>
@@ -136,7 +135,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
               </div>
             </div>
 
-            {/* 4 Rukita Trust Highlights */}
+            {/* 4 Trust Highlights */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-left">
               <div className="flex items-center gap-2 text-xs font-bold text-gray-700">
                 <CheckCircle2 className="w-4 h-4 text-rukita-500 shrink-0" />
@@ -151,14 +150,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
                 <span>Parkir Motor Aman</span>
               </div>
               <div className="flex items-center gap-2 text-xs font-bold text-gray-700">
-                <KeyRound className="w-4 h-4 text-amber-500 shrink-0" />
-                <span>Akses Kunci Pagar</span>
+                <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>Lingkungan Tenang</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Hero Visual Card (Rukita Co-living Style) */}
+          {/* Right Column: Hero Visual Card */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
@@ -170,7 +169,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent" />
 
-                {/* Top Overlay Badge in Rukita style */}
+                {/* Top Overlay Badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-2">
                   <span className="px-3 py-1 rounded-full text-xs font-black bg-rukita-500 text-white shadow-xs">
                     RUKITA INSPIRED
@@ -198,7 +197,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSurvey, onExploreRooms }) => {
                     <div className="text-right">
                       <span className="text-[10px] text-gray-500 block">Mulai dari</span>
                       <span className="text-base sm:text-lg font-black text-gray-900">
-                        Rp 350.000<span className="text-xs font-normal text-gray-500">/bln</span>
+                        Rp 350.000<span className="text-xs font-normal text-gray-500">/org/bln</span>
                       </span>
                     </div>
                   </div>

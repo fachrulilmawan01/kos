@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Droplets, Sparkles, CheckCircle2, GraduationCap, MapPin, KeyRound } from 'lucide-react';
+import { ShieldCheck, Droplets, Sparkles, CheckCircle2, GraduationCap, MapPin } from 'lucide-react';
 import { KOS_INFO } from '../data/kosData';
 
 export const AboutSection: React.FC = () => {
@@ -43,7 +43,7 @@ export const AboutSection: React.FC = () => {
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-rukita-500 shrink-0 mt-0.5" />
-                <span><strong>Tarif Transparan & Bersahabat:</strong> Mulai Rp 350.000/bln untuk 1 bed, atau Rp 300.000/orang untuk tipe 2 bed berdua.</span>
+                <span><strong>Tarif Transparan & Bersahabat:</strong> 1 kamar 1 orang Rp 700.000/bln, atau 1 kamar 2 orang Rp 350.000/orang/bln (total Rp 700.000/kamar).</span>
               </div>
             </div>
           </div>

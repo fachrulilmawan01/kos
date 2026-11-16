@@ -12,6 +12,7 @@ import { formatRupiah, createWhatsAppUrl } from '../utils/formatters';
 export const CostCalculator: React.FC = () => {
   const [selectedRoomId, setSelectedRoomId] = useState<string>(ROOM_TYPES[0].id);
   const [durationMonths, setDurationMonths] = useState<number>(1);
+  const [occupancyMode, setOccupancyMode] = useState<'per-kamar' | 'per-orang'>('per-orang');
   const [addons, setAddons] = useState<{
     magicCom: boolean;
     fanMini: boolean;
@@ -31,8 +32,13 @@ export const CostCalculator: React.FC = () => {
     (addons.magicCom ? 20000 : 0) +
     (addons.fanMini ? 15000 : 0);
 
-  const baseTotal = selectedRoom.priceMonthly * durationMonths;
-  const discountedRent = baseTotal - discountAmount;
+  // If user selected 2-bed and chooses "per-orang" mode, calculate Rp 350.000/mo
+  const baseMonthlyPrice = (selectedRoom.bedCount === '2-bed' && occupancyMode === 'per-orang')
+    ? (selectedRoom.pricePerPerson || 350000)
+    : selectedRoom.priceMonthly;
+
+  const baseTotal = baseMonthlyPrice * durationMonths;
+  const discountedRent = Math.max(0, baseTotal - (occupancyMode === 'per-orang' && selectedRoom.bedCount === '2-bed' ? discountAmount / 2 : discountAmount));
   const totalAddons = monthlyAddons * durationMonths;
   const grandTotal = discountedRent + totalAddons;
 
@@ -41,13 +47,13 @@ export const CostCalculator: React.FC = () => {
     addons.fanMini ? 'Kipas Angin Tambahan' : null,
   ].filter(Boolean).join(', ') || 'Tanpa Tambahan Alat Elektronik';
 
-  const proposalMessage = `Halo Bu Yet, saya mahasiswa yang mencoba kalkulator sewa di website KOS Buk Yet (dekat Univ. Adzkia Padang):
-- Pilihan Unit: ${selectedRoom.name}
+  const proposalMessage = `Halo Bu Yet, saya mahasiswa ingin bertanya estimasi sewa KOS Buk Yet (dekat Univ. Adzkia Padang):
+- Pilihan Unit: ${selectedRoom.name} ${selectedRoom.bedCount === '2-bed' ? `(${occupancyMode === 'per-orang' ? 'Hitungan Per Orang Rp 350rb' : 'Hitungan 1 Kamar Rp 700rb'})` : ''}
 - Durasi Sewa: ${durationMonths} Bulan
 - Tambahan Alat: ${addonsSummary}
-- Estimasi Total: ${formatRupiah(grandTotal)}
+- Estimasi Biaya: ${formatRupiah(grandTotal)}
 
-Apakah kamar ini masih tersedia? Terima kasih!`;
+Apakah unit kamar masih ada yang kosong? Terima kasih!`;
 
   const waProposalUrl = createWhatsAppUrl(KOS_INFO.whatsappNumber, proposalMessage);
 
@@ -64,7 +70,7 @@ Apakah kamar ini masih tersedia? Terima kasih!`;
             Kalkulator Sewa Transparan
           </h2>
           <p className="text-gray-600 text-xs sm:text-sm">
-            Hitung estimasi pengeluaran sewa kamar sesuai dengan durasi studi Anda tanpa ada biaya tersembunyi.
+            Hitung perkiraan biaya sewa kamar untuk 1 orang (Rp 700.000) atau 2 orang (Rp 350.000/orang) sesuai durasi studi Anda.
           </p>
         </div>
 
@@ -86,22 +92,49 @@ Apakah kamar ini masih tersedia? Terima kasih!`;
                       key={room.id}
                       type="button"
                       onClick={() => setSelectedRoomId(room.id)}
-                      className={`p-3 rounded-2xl text-left border transition-all ${
+                      className={`p-3.5 rounded-2xl text-left border transition-all ${
                         selectedRoomId === room.id
                           ? 'bg-rukita-50 border-rukita-500 shadow-xs ring-2 ring-rukita-500/20'
                           : 'bg-white border-gray-200 text-gray-800 hover:border-gray-300'
                       }`}
                     >
-                      <div className="flex items-center justify-between mb-0.5">
-                        <span className="text-xs font-black truncate">{room.name}</span>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-black">{room.name}</span>
                         {selectedRoomId === room.id && <Check className="w-3.5 h-3.5 text-rukita-600 shrink-0" />}
                       </div>
                       <p className={`text-xs font-black ${selectedRoomId === room.id ? 'text-rukita-700' : 'text-gray-900'}`}>
-                        {formatRupiah(room.priceMonthly)} <span className="text-[10px] font-normal opacity-80">/bln</span>
+                        {room.bedCount === '1-bed' ? 'Rp 700.000' : 'Rp 350.000'} <span className="text-[10px] font-normal opacity-80">{room.bedCount === '1-bed' ? '/bulan' : '/orang/bln'}</span>
                       </p>
                     </button>
                   ))}
                 </div>
+
+                {/* Occupancy mode toggle for 2-bed */}
+                {selectedRoom.bedCount === '2-bed' && (
+                  <div className="mt-3 p-2.5 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-between text-xs">
+                    <span className="font-bold text-gray-700">Hitungan Biaya:</span>
+                    <div className="inline-flex p-0.5 rounded-lg bg-gray-200">
+                      <button
+                        type="button"
+                        onClick={() => setOccupancyMode('per-orang')}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-black transition-colors ${
+                          occupancyMode === 'per-orang' ? 'bg-white text-gray-900 shadow-xs' : 'text-gray-600'
+                        }`}
+                      >
+                        Per Orang (Rp 350rb)
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setOccupancyMode('per-kamar')}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-black transition-colors ${
+                          occupancyMode === 'per-kamar' ? 'bg-white text-gray-900 shadow-xs' : 'text-gray-600'
+                        }`}
+                      >
+                        Total 1 Kamar (Rp 700rb)
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Duration select */}
@@ -112,8 +145,8 @@ Apakah kamar ini masih tersedia? Terima kasih!`;
                 <div className="grid grid-cols-3 gap-2">
                   {[
                     { m: 1, label: '1 Bulan', note: 'Bulanan' },
-                    { m: 6, label: '6 Bulan', note: 'Hemat 100rb' },
-                    { m: 12, label: '1 Tahun', note: 'Hemat 300rb' },
+                    { m: 6, label: '6 Bulan', note: 'Potongan Khusus' },
+                    { m: 12, label: '1 Tahun', note: 'Potongan Spesial' },
                   ].map((dur) => (
                     <button
                       key={dur.m}
@@ -179,16 +212,16 @@ Apakah kamar ini masih tersedia? Terima kasih!`;
 
               <div className="space-y-2.5 text-xs">
                 <div className="flex justify-between text-gray-600">
-                  <span>Biaya Kamar ({durationMonths} Bulan):</span>
+                  <span>Biaya Sewa ({durationMonths} Bulan):</span>
                   <span className="font-bold text-gray-900">{formatRupiah(baseTotal)}</span>
                 </div>
 
                 {discountAmount > 0 && (
                   <div className="flex justify-between text-rukita-700 font-bold bg-rukita-100/70 p-2 rounded-lg">
                     <span className="flex items-center gap-1">
-                      <Tag className="w-3.5 h-3.5" /> Diskon Durasi:
+                      <Tag className="w-3.5 h-3.5" /> Potongan Durasi:
                     </span>
-                    <span>-{formatRupiah(discountAmount)}</span>
+                    <span>-{formatRupiah(selectedRoom.bedCount === '2-bed' && occupancyMode === 'per-orang' ? discountAmount / 2 : discountAmount)}</span>
                   </div>
                 )}
 
@@ -205,7 +238,12 @@ Apakah kamar ini masih tersedia? Terima kasih!`;
                 </div>
 
                 <div className="pt-3 border-t border-gray-200 flex justify-between items-baseline">
-                  <span className="text-xs font-bold text-gray-700">Total Estimasi:</span>
+                  <div>
+                    <span className="text-xs font-bold text-gray-700 block">Total Estimasi:</span>
+                    <span className="text-[10px] text-gray-500">
+                      {selectedRoom.bedCount === '2-bed' && occupancyMode === 'per-orang' ? '(Tarif Per Orang)' : '(Tarif Per Kamar)'}
+                    </span>
+                  </div>
                   <span className="text-2xl font-black text-gray-900">
                     {formatRupiah(grandTotal)}
                   </span>

@@ -69,22 +69,12 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs text-gray-400">
               <li>
                 <a href="#kamar" className="hover:text-rukita-300 transition-colors">
-                  1 Bed Standar (Mulai Rp 350.000/bln)
+                  1 Kamar 1 Orang (Rp 700.000/bln)
                 </a>
               </li>
               <li>
                 <a href="#kamar" className="hover:text-rukita-300 transition-colors">
-                  1 Bed KM Dalam (Rp 450.000/bln)
-                </a>
-              </li>
-              <li>
-                <a href="#kamar" className="hover:text-rukita-300 transition-colors">
-                  2 Bed Standar - Berdua (Rp 600.000/bln)
-                </a>
-              </li>
-              <li>
-                <a href="#kamar" className="hover:text-rukita-300 transition-colors">
-                  2 Bed KM Dalam - Berdua (Rp 700.000/bln)
+                  1 Kamar 2 Orang (Rp 350.000/org/bln)
                 </a>
               </li>
             </ul>
