@@ -23,9 +23,9 @@ export const LocationSection: React.FC = () => {
     <section id="lokasi" className="py-16 sm:py-20 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header in Rukita Style */}
+        {/* Header in Modern Style */}
         <div className="max-w-2xl mx-auto text-center space-y-2 mb-10">
-          <span className="text-xs font-black uppercase tracking-wider text-rukita-700 bg-rukita-50 px-3 py-1 rounded-full border border-rukita-200">
+          <span className="text-xs font-black uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
             LOKASI STRATEGIS & KAMPUS
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
@@ -42,12 +42,12 @@ export const LocationSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-4">
             
             {/* Primary Campus Box */}
-            <div className="p-4 rounded-2xl bg-rukita-900 text-white space-y-2 shadow-xs">
+            <div className="p-4 rounded-2xl bg-brand-900 text-white space-y-2 shadow-xs">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-black uppercase tracking-wider text-rukita-300 bg-rukita-800/80 px-2.5 py-0.5 rounded-full border border-rukita-700">
+                <span className="text-[10px] font-black uppercase tracking-wider text-brand-300 bg-brand-800/80 px-2.5 py-0.5 rounded-full border border-brand-700">
                   Kampus Utama Terdekat
                 </span>
-                <span className="text-xs font-black text-rukita-300 flex items-center gap-1">
+                <span className="text-xs font-black text-brand-300 flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5" /> ±2-3 Menit
                 </span>
               </div>
@@ -63,7 +63,7 @@ export const LocationSection: React.FC = () => {
             <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 space-y-3">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-rukita-500 shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-black text-gray-900 text-xs sm:text-sm">
                       {KOS_INFO.altName} ({KOS_INFO.name})
@@ -79,7 +79,7 @@ export const LocationSection: React.FC = () => {
                   className="p-1.5 rounded-lg bg-white border border-gray-200 text-gray-500 hover:text-gray-800 transition-colors shrink-0"
                   title="Salin Alamat"
                 >
-                  {copied ? <Check className="w-3.5 h-3.5 text-rukita-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copied ? <Check className="w-3.5 h-3.5 text-brand-600" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
               </div>
 
@@ -88,7 +88,7 @@ export const LocationSection: React.FC = () => {
                   href={KOS_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white text-xs font-black transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-black transition-colors shadow-xs"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Petunjuk Arah Google Maps</span>
@@ -109,7 +109,7 @@ export const LocationSection: React.FC = () => {
                     className="flex items-center justify-between p-2.5 rounded-xl bg-gray-50 text-xs text-gray-800"
                   >
                     <div className="flex items-center gap-2">
-                      <GraduationCap className="w-3.5 h-3.5 text-rukita-500 shrink-0" />
+                      <GraduationCap className="w-3.5 h-3.5 text-brand-500 shrink-0" />
                       <span className="font-semibold text-gray-900">{item.name}</span>
                     </div>
                     <span className="font-bold text-gray-600 flex items-center gap-1 shrink-0 text-[11px]">

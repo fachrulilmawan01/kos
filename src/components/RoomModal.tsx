@@ -51,10 +51,10 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
         <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-[#FAF9F6]">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-rukita-500 text-white">
+              <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-brand-500 text-white">
                 {room.bedCount === '1-bed' ? '1 BED (SINGLE)' : '2 BED (TWIN)'}
               </span>
-              <span className="text-xs font-bold text-rukita-800 bg-rukita-50 px-2.5 py-0.5 rounded-full border border-rukita-200">
+              <span className="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-0.5 rounded-full border border-brand-200">
                 {room.tag}
               </span>
             </div>
@@ -62,7 +62,7 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
               {room.name}
             </h3>
             <p className="text-[11px] text-gray-500 flex items-center gap-1 mt-0.5 font-medium">
-              <MapPin className="w-3 h-3 text-rukita-500" /> Kalumbuk • ±400m ke Universitas Adzkia Padang
+              <MapPin className="w-3 h-3 text-brand-500" /> Kalumbuk • ±400m ke Universitas Adzkia Padang
             </p>
           </div>
 
@@ -123,10 +123,10 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
             </div>
           </div>
 
-          {/* Pricing Highlight Box in Rukita Style */}
-          <div className="p-4 rounded-2xl bg-rukita-50/70 border border-rukita-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          {/* Pricing Highlight Box in Modern Style */}
+          <div className="p-4 rounded-2xl bg-brand-50/70 border border-brand-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <span className="text-[11px] font-bold text-rukita-900 block uppercase tracking-wider">
+              <span className="text-[11px] font-bold text-brand-900 block uppercase tracking-wider">
                 Tarif Mahasiswa
               </span>
               <div className="flex items-baseline gap-1 mt-0.5">
@@ -136,7 +136,7 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
                 <span className="text-gray-500 text-xs font-medium">/ bulan</span>
               </div>
               {room.priceYearly && (
-                <p className="text-xs text-rukita-700 mt-1 font-semibold">
+                <p className="text-xs text-brand-700 mt-1 font-semibold">
                   Sewa tahunan: {formatRupiah(room.priceYearly)} / tahun
                 </p>
               )}
@@ -147,7 +147,7 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
                 href={waBookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white font-extrabold text-xs shadow-xs transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-xs shadow-xs transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Pesan Unit via WA</span>
@@ -168,17 +168,17 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
           {/* Specs */}
           <div className="grid grid-cols-3 gap-3">
             <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-left">
-              <Maximize2 className="w-4 h-4 text-rukita-500 mb-1" />
+              <Maximize2 className="w-4 h-4 text-brand-500 mb-1" />
               <p className="text-[10px] text-gray-500 font-bold uppercase">Ukuran</p>
               <p className="text-xs sm:text-sm font-black text-gray-900">{room.size}</p>
             </div>
             <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-left">
-              <Bed className="w-4 h-4 text-rukita-500 mb-1" />
+              <Bed className="w-4 h-4 text-brand-500 mb-1" />
               <p className="text-[10px] text-gray-500 font-bold uppercase">Tempat Tidur</p>
               <p className="text-xs sm:text-sm font-black text-gray-900 truncate">{room.bedType}</p>
             </div>
             <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-left">
-              <Users className="w-4 h-4 text-rukita-500 mb-1" />
+              <Users className="w-4 h-4 text-brand-500 mb-1" />
               <p className="text-[10px] text-gray-500 font-bold uppercase">Kapasitas</p>
               <p className="text-xs sm:text-sm font-black text-gray-900">{room.capacity}</p>
             </div>
@@ -196,7 +196,7 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {room.features.map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-xs text-gray-700">
-                  <Check className="w-3.5 h-3.5 text-rukita-500 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-brand-500 shrink-0" />
                   <span>{feature}</span>
                 </div>
               ))}
@@ -206,7 +206,7 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
           {/* Utilities */}
           <div className="p-3.5 rounded-xl bg-gray-100/80 border border-gray-200 text-xs text-gray-600 space-y-1">
             <div className="flex items-center gap-1.5 font-bold text-gray-900">
-              <Info className="w-4 h-4 text-rukita-500" />
+              <Info className="w-4 h-4 text-brand-500" />
               <span>Termasuk Dalam Biaya Sewa:</span>
             </div>
             <p className="pl-5">{room.includedUtilities.join(' • ')}</p>
@@ -217,7 +217,7 @@ export const RoomModal: React.FC<RoomModalProps> = ({ room, onClose, onOpenSurve
         {/* Footer */}
         <div className="bg-[#FAF9F6] px-6 py-3.5 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
           <span className="flex items-center gap-1.5 font-medium">
-            <ShieldCheck className="w-4 h-4 text-rukita-500" /> Transparan, tanpa biaya makelar
+            <ShieldCheck className="w-4 h-4 text-brand-500" /> Transparan, tanpa biaya makelar
           </span>
           <button
             onClick={onClose}

@@ -1,6 +1,6 @@
 # KOS Buk Yet (Kos Putra Bu Yett)
 
-Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (Kos Putra Bu Yett)** — hunian kos **Khusus Mahasiswa Pria** yang berlokasi sangat dekat dengan **Universitas Adzkia Padang** (Kalumbuk, Kec. Kuranji, Kota Padang, Sumatera Barat), dengan referensi desain UI dari platform co-living terkemuka **Rukita (rukita.co)**.
+Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (Kos Putra Bu Yett)** — hunian kos **Khusus Mahasiswa Pria** yang berlokasi sangat dekat dengan **Universitas Adzkia Padang** (Kalumbuk, Kec. Kuranji, Kota Padang, Sumatera Barat).
 
 - 🎓 **Target Penghuni**: Khusus Mahasiswa Pria (Lingkungan Tenang & Kondusif)
 - 📍 **Lokasi Strategis**: Hanya ±400 meter (±2-3 menit) ke **Universitas Adzkia Padang**
@@ -13,9 +13,9 @@ Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (
 
 ---
 
-## 🎨 Karakteristik Desain (Rukita.co Inspired)
+## 🎨 Karakteristik Desain (Co-Living Modern & Profesional)
 
-1. **Palet Warna Ikonik Rukita**:
+1. **Palet Warna Eksklusif (Teal & Off-White)**:
    - *Primary Persian Green / Deep Teal* (`#009C96`) dipadukan dengan latar belakang *Spring Wood off-white* (`#FAF9F6`) dan aksen kontras charcoal elegan.
 2. **Signature Hero Search & Filter Widget**:
    - Widget pencarian instan floating di Hero section untuk memilih tipe kamar (1 Bed / 2 Bed), lokasi kampus Adzkia, dan rentang budget.

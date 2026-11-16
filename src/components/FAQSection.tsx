@@ -21,7 +21,7 @@ export const FAQSection: React.FC = () => {
         
         {/* Header */}
         <div className="text-center space-y-2 mb-10">
-          <span className="text-xs font-black uppercase tracking-wider text-rukita-700 bg-rukita-50 px-3 py-1 rounded-full border border-rukita-200">
+          <span className="text-xs font-black uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
             TANYA JAWAB (FAQ)
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
@@ -32,7 +32,7 @@ export const FAQSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Accordions in Rukita Style */}
+        {/* Accordions in Modern Style */}
         <div className="space-y-3">
           {FAQS.map((faq: FAQ) => {
             const isOpen = openId === faq.id;
@@ -40,7 +40,7 @@ export const FAQSection: React.FC = () => {
               <div
                 key={faq.id}
                 className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen ? 'border-rukita-400 shadow-sm' : 'border-gray-200 hover:border-gray-300'
+                  isOpen ? 'border-brand-400 shadow-sm' : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
                 <button
@@ -49,7 +49,7 @@ export const FAQSection: React.FC = () => {
                   className="w-full py-4 px-5 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-black text-gray-900"
                 >
                   <span>{faq.question}</span>
-                  <div className={`p-1 rounded-full transition-transform ${isOpen ? 'rotate-180 bg-rukita-50 text-rukita-600' : 'text-gray-400'}`}>
+                  <div className={`p-1 rounded-full transition-transform ${isOpen ? 'rotate-180 bg-brand-50 text-brand-600' : 'text-gray-400'}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
@@ -64,10 +64,10 @@ export const FAQSection: React.FC = () => {
           })}
         </div>
 
-        {/* Rukita Contact Banner */}
+        {/* Modern Contact Banner */}
         <div className="mt-10 p-5 rounded-2xl bg-white border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-rukita-50 text-rukita-600 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
               <HelpCircle className="w-5 h-5" />
             </div>
             <div>
@@ -80,7 +80,7 @@ export const FAQSection: React.FC = () => {
             href={waAskUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white font-black text-xs transition-colors shadow-xs shrink-0"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs transition-colors shadow-xs shrink-0"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Chat Bu Yet via WA</span>

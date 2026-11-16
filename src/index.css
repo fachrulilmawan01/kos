@@ -23,7 +23,7 @@
   background: #94a3b8;
 }
 
-/* Smooth Rukita-style subtle cards */
-.rukita-card {
-  @apply bg-white border border-gray-200/90 rounded-2xl shadow-sm transition-all duration-200 hover:shadow-md hover:border-rukita-300;
+/* Smooth Modern-style subtle cards */
+.kost-card {
+  @apply bg-white border border-gray-200/90 rounded-2xl shadow-sm transition-all duration-200 hover:shadow-md hover:border-brand-300;
 }

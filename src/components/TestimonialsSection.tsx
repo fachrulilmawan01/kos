@@ -9,7 +9,7 @@ export const TestimonialsSection: React.FC = () => {
         
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center space-y-2 mb-10">
-          <span className="text-xs font-black uppercase tracking-wider text-rukita-700 bg-rukita-50 px-3 py-1 rounded-full border border-rukita-200">
+          <span className="text-xs font-black uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
             CERITA PENGHUNI KOS
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
@@ -25,7 +25,7 @@ export const TestimonialsSection: React.FC = () => {
           {TESTIMONIALS.map((item: Testimonial) => (
             <div
               key={item.id}
-              className="p-6 rounded-2xl bg-[#FAF9F6] border border-gray-200 space-y-4 flex flex-col justify-between shadow-xs hover:border-rukita-300 transition-colors"
+              className="p-6 rounded-2xl bg-[#FAF9F6] border border-gray-200 space-y-4 flex flex-col justify-between shadow-xs hover:border-brand-300 transition-colors"
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
@@ -49,18 +49,18 @@ export const TestimonialsSection: React.FC = () => {
                   <img
                     src={item.avatar}
                     alt={item.name}
-                    className="w-10 h-10 rounded-full object-cover border-2 border-rukita-200"
+                    className="w-10 h-10 rounded-full object-cover border-2 border-brand-200"
                     loading="lazy"
                   />
                   <div>
                     <h4 className="font-black text-xs sm:text-sm text-gray-900">{item.name}</h4>
                     <p className="text-[11px] text-gray-500 flex items-center gap-1">
-                      <GraduationCap className="w-3 h-3 text-rukita-500" /> {item.role}
+                      <GraduationCap className="w-3 h-3 text-brand-500" /> {item.role}
                     </p>
                   </div>
                 </div>
 
-                <span className="text-[10px] font-black text-rukita-800 bg-rukita-50 px-2.5 py-1 rounded-full border border-rukita-200">
+                <span className="text-[10px] font-black text-brand-800 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200">
                   {item.duration}
                 </span>
               </div>

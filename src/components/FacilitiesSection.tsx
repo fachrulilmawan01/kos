@@ -13,7 +13,7 @@ export const FacilitiesSection: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 text-rukita-500" />;
+        return <ShieldCheck className="w-5 h-5 text-brand-500" />;
       case 'Droplets':
         return <Droplets className="w-5 h-5 text-blue-500" />;
       case 'UtensilsCrossed':
@@ -21,7 +21,7 @@ export const FacilitiesSection: React.FC = () => {
       case 'Sun':
         return <Sun className="w-5 h-5 text-orange-500" />;
       default:
-        return <Sparkles className="w-5 h-5 text-rukita-500" />;
+        return <Sparkles className="w-5 h-5 text-brand-500" />;
     }
   };
 
@@ -31,7 +31,7 @@ export const FacilitiesSection: React.FC = () => {
         
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center space-y-2 mb-12">
-          <span className="text-xs font-black uppercase tracking-wider text-rukita-700 bg-rukita-50 px-3 py-1 rounded-full border border-rukita-200">
+          <span className="text-xs font-black uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
             FASILITAS BERSAMA
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
@@ -47,10 +47,10 @@ export const FacilitiesSection: React.FC = () => {
           {GENERAL_FACILITIES.map((facility: Facility) => (
             <div
               key={facility.id}
-              className="p-5 rounded-2xl bg-white border border-gray-200 hover:border-rukita-300 hover:shadow-md transition-all space-y-2.5"
+              className="p-5 rounded-2xl bg-white border border-gray-200 hover:border-brand-300 hover:shadow-md transition-all space-y-2.5"
             >
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-rukita-50 border border-rukita-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center">
                   {getIcon(facility.iconName)}
                 </div>
                 {facility.badge && (
@@ -68,7 +68,7 @@ export const FacilitiesSection: React.FC = () => {
                 {facility.description}
               </p>
 
-              <div className="pt-2 flex items-center gap-1.5 text-[11px] font-bold text-rukita-600">
+              <div className="pt-2 flex items-center gap-1.5 text-[11px] font-bold text-brand-600">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Termasuk dalam Biaya Sewa</span>
               </div>

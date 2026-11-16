@@ -9,7 +9,7 @@ export const RulesSection: React.FC = () => {
         
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center space-y-2 mb-10">
-          <span className="text-xs font-black uppercase tracking-wider text-rukita-700 bg-rukita-50 px-3 py-1 rounded-full border border-rukita-200">
+          <span className="text-xs font-black uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
             TATA TERTIB HUNIAN
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
@@ -25,10 +25,10 @@ export const RulesSection: React.FC = () => {
           {RULES.map((rule) => (
             <div
               key={rule.id}
-              className="p-5 rounded-2xl bg-white border border-gray-200 space-y-2 shadow-xs hover:border-rukita-300 transition-colors"
+              className="p-5 rounded-2xl bg-white border border-gray-200 space-y-2 shadow-xs hover:border-brand-300 transition-colors"
             >
               <div className="flex items-center gap-2.5">
-                <span className="w-6 h-6 rounded-lg bg-rukita-50 text-rukita-700 font-black text-xs flex items-center justify-center shrink-0 border border-rukita-200">
+                <span className="w-6 h-6 rounded-lg bg-brand-50 text-brand-700 font-black text-xs flex items-center justify-center shrink-0 border border-brand-200">
                   {rule.id}
                 </span>
                 <h3 className="font-black text-xs sm:text-sm text-gray-900">
@@ -43,7 +43,7 @@ export const RulesSection: React.FC = () => {
 
           <div className="p-5 rounded-2xl bg-gray-900 text-white space-y-2 shadow-xs">
             <div className="flex items-center gap-2.5">
-              <ShieldCheck className="w-5 h-5 text-rukita-400 shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-brand-400 shrink-0" />
               <h3 className="font-black text-xs sm:text-sm text-white">
                 Ketenangan Orang Tua
               </h3>

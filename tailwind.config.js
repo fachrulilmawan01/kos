@@ -7,14 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Rukita Persian Green / Deep Teal Palette
-        rukita: {
+        // Modern Persian Green / Deep Teal Palette
+        brand: {
           50: '#f0fdfa',
           100: '#ccfbf1',
           200: '#99f6e4',
           300: '#5eead4',
           400: '#2dd4bf',
-          500: '#009c96', // Rukita primary teal
+          500: '#009c96', // Modern primary teal
           600: '#00847f',
           700: '#0f766e',
           800: '#115e59',

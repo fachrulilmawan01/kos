@@ -26,11 +26,11 @@ export const FloatingWhatsApp: React.FC = () => {
       {isOpen && (
         <div className="mb-2 w-72 sm:w-80 bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden animate-in slide-in-from-bottom-2 duration-150">
           
-          {/* Header in Rukita Teal */}
-          <div className="bg-rukita-500 text-white p-3.5 flex items-center justify-between">
+          {/* Header in Modern Teal */}
+          <div className="bg-brand-500 text-white p-3.5 flex items-center justify-between">
             <div>
               <h4 className="font-black text-xs text-white">Bu Yet (Pengelola Kos)</h4>
-              <p className="text-[10px] text-rukita-100 font-medium">Online • Kalumbuk, Dekat Univ. Adzkia</p>
+              <p className="text-[10px] text-brand-100 font-medium">Online • Kalumbuk, Dekat Univ. Adzkia</p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -51,7 +51,7 @@ export const FloatingWhatsApp: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => handleSend(`Halo Bu Yet, ${q}`)}
-                  className="w-full text-left text-xs bg-white hover:bg-rukita-50 hover:text-rukita-700 hover:border-rukita-300 p-2 rounded-xl border border-gray-200 text-gray-700 transition-colors font-medium"
+                  className="w-full text-left text-xs bg-white hover:bg-brand-50 hover:text-brand-700 hover:border-brand-300 p-2 rounded-xl border border-gray-200 text-gray-700 transition-colors font-medium"
                 >
                   💬 {q}
                 </button>
@@ -70,13 +70,13 @@ export const FloatingWhatsApp: React.FC = () => {
                   handleSend(customMsg.trim());
                 }
               }}
-              className="flex-1 px-3 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-rukita-500 bg-gray-50"
+              className="flex-1 px-3 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 bg-gray-50"
             />
             <button
               onClick={() => {
                 if (customMsg.trim()) handleSend(customMsg.trim());
               }}
-              className="p-2 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white transition-colors"
+              className="p-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white transition-colors"
             >
               <Send className="w-3.5 h-3.5" />
             </button>
@@ -85,10 +85,10 @@ export const FloatingWhatsApp: React.FC = () => {
         </div>
       )}
 
-      {/* Floating Button in Rukita Teal */}
+      {/* Floating Button in Modern Teal */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-3 rounded-full bg-rukita-500 hover:bg-rukita-600 text-white shadow-xl shadow-rukita-600/30 transition-all text-xs font-black"
+        className="flex items-center gap-2 px-4 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white shadow-xl shadow-brand-600/30 transition-all text-xs font-black"
         aria-label="Chat WhatsApp Buk Yet"
       >
         <MessageCircle className="w-4 h-4" />

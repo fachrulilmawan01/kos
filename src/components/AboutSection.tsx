@@ -12,7 +12,7 @@ export const AboutSection: React.FC = () => {
           {/* Left Text */}
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-black uppercase tracking-wider text-rukita-700 bg-rukita-50 px-3 py-1 rounded-full border border-rukita-200">
+              <span className="text-xs font-black uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
                 KENYAMANAN MAHASISWA
               </span>
               <span className="text-xs font-bold text-gray-700 bg-gray-200/80 px-2.5 py-0.5 rounded-full">
@@ -30,45 +30,45 @@ export const AboutSection: React.FC = () => {
 
             <div className="space-y-2.5 pt-2 text-xs text-gray-800">
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-rukita-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                 <span><strong>Khusus Mahasiswa Pria:</strong> Lingkungan tertib, saling menghargai jam belajar, dan bebas dari gangguan non-akademik.</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-rukita-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                 <span><strong>Hanya ±400m ke Universitas Adzkia:</strong> Hemat waktu perjalanan kuliah dan praktikum, cukup 2 menit dengan motor atau jalan kaki.</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-rukita-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                 <span><strong>Fasilitas Esensial Terpenuhi:</strong> Air bersih melimpah tanpa biaya tambahan, tempat jemuran luas, dan parkir motor aman.</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-rukita-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                 <span><strong>Tarif Transparan & Bersahabat:</strong> 1 kamar 1 orang Rp 700.000/bln, atau 1 kamar 2 orang Rp 350.000/orang/bln (total Rp 700.000/kamar).</span>
               </div>
             </div>
           </div>
 
-          {/* Right Highlights Cards (Rukita Feature Box) */}
+          {/* Right Highlights Cards (Modern Feature Box) */}
           <div className="lg:col-span-6">
             <div className="grid grid-cols-2 gap-3.5">
               
-              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-rukita-300 transition-colors">
-                <div className="w-9 h-9 rounded-xl bg-rukita-50 flex items-center justify-center text-rukita-600 mb-1">
+              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-brand-300 transition-colors">
+                <div className="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 mb-1">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <h4 className="text-xs font-black text-gray-900">Khusus Mahasiswa</h4>
                 <p className="text-[11px] text-gray-500 leading-relaxed">Fokus belajar tanpa kebisingan lingkungan luar.</p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-rukita-300 transition-colors">
-                <div className="w-9 h-9 rounded-xl bg-rukita-50 flex items-center justify-center text-rukita-600 mb-1">
+              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-brand-300 transition-colors">
+                <div className="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 mb-1">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <h4 className="text-xs font-black text-gray-900">Dekat Univ. Adzkia</h4>
                 <p className="text-[11px] text-gray-500 leading-relaxed">Jarak ±400 meter di area Kalumbuk Kuranji.</p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-rukita-300 transition-colors">
+              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-brand-300 transition-colors">
                 <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-1">
                   <Droplets className="w-5 h-5" />
                 </div>
@@ -76,8 +76,8 @@ export const AboutSection: React.FC = () => {
                 <p className="text-[11px] text-gray-500 leading-relaxed">Air jernih lancar setiap hari untuk kebutuhan mahasiswa.</p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-rukita-300 transition-colors">
-                <div className="w-9 h-9 rounded-xl bg-rukita-50 flex items-center justify-center text-rukita-600 mb-1">
+              <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-1.5 shadow-xs hover:border-brand-300 transition-colors">
+                <div className="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 mb-1">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <h4 className="text-xs font-black text-gray-900">Parkir Motor Aman</h4>

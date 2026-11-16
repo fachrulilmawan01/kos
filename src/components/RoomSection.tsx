@@ -28,10 +28,10 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
     <section id="kamar" className="py-16 sm:py-20 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Rukita Co-living Style) */}
+        {/* Section Header (Modern Co-living Style) */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rukita-50 text-rukita-700 border border-rukita-200 text-xs font-black">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-200 text-xs font-black">
               <GraduationCap className="w-3.5 h-3.5" />
               <span>Pilihan Kamar Mahasiswa Pria</span>
             </div>
@@ -43,13 +43,13 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
             </p>
           </div>
 
-          {/* Rukita Filter Tabs */}
+          {/* Modern Filter Tabs */}
           <div className="inline-flex p-1 rounded-xl bg-gray-100 border border-gray-200 shrink-0 self-start md:self-auto">
             <button
               onClick={() => setSelectedFilter('all')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-black transition-all ${
                 selectedFilter === 'all'
-                  ? 'bg-rukita-500 text-white shadow-xs'
+                  ? 'bg-brand-500 text-white shadow-xs'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -59,7 +59,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
               onClick={() => setSelectedFilter('1-bed')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-black transition-all ${
                 selectedFilter === '1-bed'
-                  ? 'bg-rukita-500 text-white shadow-xs'
+                  ? 'bg-brand-500 text-white shadow-xs'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -69,7 +69,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
               onClick={() => setSelectedFilter('2-bed')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-black transition-all ${
                 selectedFilter === '2-bed'
-                  ? 'bg-rukita-500 text-white shadow-xs'
+                  ? 'bg-brand-500 text-white shadow-xs'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -78,7 +78,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
           </div>
         </div>
 
-        {/* Room Listing Grid (Rukita Style Cards) */}
+        {/* Room Listing Grid (Modern Style Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {filteredRooms.map((room) => {
             const displayPriceText = room.pricePerPerson 
@@ -97,7 +97,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
             return (
               <div
                 key={room.id}
-                className="group bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-rukita-300 transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-brand-300 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Photo Header */}
                 <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
@@ -111,7 +111,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                   {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent opacity-60" />
 
-                  {/* Top Badges in Rukita Style */}
+                  {/* Top Badges in Modern Style */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
                     <span className="px-3 py-1 rounded-lg text-[10px] font-black bg-gray-900 text-white shadow-xs">
                       {room.bedCount === '1-bed' ? '1 KAMAR 1 ORANG' : '1 KAMAR 2 ORANG'}
@@ -121,7 +121,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     </span>
                   </div>
 
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-[10px] font-black bg-rukita-500 text-white shadow-xs">
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-[10px] font-black bg-brand-500 text-white shadow-xs">
                     Sisa {room.availableRooms} Kamar
                   </div>
 
@@ -141,11 +141,11 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                   <div>
                     {/* Location Tag */}
                     <div className="flex items-center gap-1 text-[11px] font-semibold text-gray-500 mb-1">
-                      <MapPin className="w-3 h-3 text-rukita-500" />
+                      <MapPin className="w-3 h-3 text-brand-500" />
                       <span>Kalumbuk, Kuranji • ±400m ke Universitas Adzkia</span>
                     </div>
 
-                    <h3 className="font-black text-lg text-gray-900 group-hover:text-rukita-600 transition-colors">
+                    <h3 className="font-black text-lg text-gray-900 group-hover:text-brand-600 transition-colors">
                       {room.name}
                     </h3>
                     
@@ -157,7 +157,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                     <div className="mt-4 pt-3 border-t border-gray-100 space-y-2">
                       {room.features.slice(0, 5).map((f, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs text-gray-700">
-                          <Check className="w-3.5 h-3.5 text-rukita-500 shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-brand-500 shrink-0" />
                           <span className="truncate">{f}</span>
                         </div>
                       ))}
@@ -180,7 +180,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                       </div>
                       
                       {room.pricePerPerson && (
-                        <span className="text-[10px] font-black text-rukita-800 bg-rukita-50 px-2.5 py-1 rounded-md border border-rukita-200">
+                        <span className="text-[10px] font-black text-brand-800 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">
                           Rp 350.000 / orang
                         </span>
                       )}
@@ -199,7 +199,7 @@ export const RoomSection: React.FC<RoomSectionProps> = ({ onOpenSurvey }) => {
                         href={waRoomUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white text-xs font-black transition-colors shadow-xs"
+                        className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-black transition-colors shadow-xs"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
                         <span>Chat via WA</span>

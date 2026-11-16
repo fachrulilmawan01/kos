@@ -36,11 +36,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
-      {/* Top Banner (Rukita Style Announcement) */}
+      {/* Top Banner (Modern Style Announcement) */}
       <div className="bg-[#0f172a] text-white text-[11px] font-medium py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 font-bold text-rukita-400">
+            <span className="inline-flex items-center gap-1 font-bold text-brand-400">
               <GraduationCap className="w-3.5 h-3.5" /> Khusus Mahasiswa Pria
             </span>
             <span className="text-gray-500 hidden sm:inline">•</span>
@@ -51,13 +51,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
 
           <div className="flex items-center gap-3">
             <span className="text-gray-300">
-              Sewa Mulai <strong className="text-rukita-300">Rp 350.000/bln</strong>
+              Sewa Mulai <strong className="text-brand-300">Rp 350.000/bln</strong>
             </span>
             <a
               href={waQuickUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1 text-rukita-300 hover:text-white font-bold"
+              className="hidden md:inline-flex items-center gap-1 text-brand-300 hover:text-white font-bold"
             >
               <span>Hubungi Bu Yet</span>
               <ArrowRight className="w-3 h-3" />
@@ -77,22 +77,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
-            {/* Logo in Rukita style */}
+            {/* Logo in Modern style */}
             <a href="#beranda" className="flex items-center gap-3 group">
-              <div className="w-9 h-9 rounded-xl bg-rukita-500 text-white flex items-center justify-center font-black shadow-xs group-hover:bg-rukita-600 transition-colors">
+              <div className="w-9 h-9 rounded-xl bg-brand-500 text-white flex items-center justify-center font-black shadow-xs group-hover:bg-brand-600 transition-colors">
                 <Home className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <span className="font-extrabold text-xl text-gray-900 tracking-tight">
-                    KOS <span className="text-rukita-500">Buk Yet</span>
+                    KOS <span className="text-brand-500">Buk Yet</span>
                   </span>
-                  <span className="px-2 py-0.5 text-[10px] font-extrabold bg-rukita-50 text-rukita-700 rounded-md border border-rukita-200">
+                  <span className="px-2 py-0.5 text-[10px] font-extrabold bg-brand-50 text-brand-700 rounded-md border border-brand-200">
                     PUTRA
                   </span>
                 </div>
                 <p className="text-[11px] text-gray-500 flex items-center gap-1 font-medium">
-                  <MapPin className="w-3 h-3 text-rukita-500" /> Kalumbuk, Padang • Dekat Univ. Adzkia
+                  <MapPin className="w-3 h-3 text-brand-500" /> Kalumbuk, Padang • Dekat Univ. Adzkia
                 </p>
               </div>
             </a>
@@ -103,14 +103,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="px-3 py-1.5 text-xs font-bold text-gray-600 hover:text-rukita-600 hover:bg-rukita-50/60 rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs font-bold text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
             </nav>
 
-            {/* CTA Buttons in Rukita style */}
+            {/* CTA Buttons in Modern style */}
             <div className="hidden sm:flex items-center gap-2.5">
               <button
                 onClick={onOpenSurvey}
@@ -124,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
                 href={waQuickUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-extrabold text-white bg-rukita-500 hover:bg-rukita-600 rounded-xl shadow-xs transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-extrabold text-white bg-brand-500 hover:bg-brand-600 rounded-xl shadow-xs transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Chat WhatsApp</span>
@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-rukita-50 hover:text-rukita-600 rounded-lg"
+                  className="px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg"
                 >
                   {link.label}
                 </a>
@@ -173,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSurvey }) => {
                 href={waQuickUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2 text-xs font-extrabold text-white bg-rukita-500 hover:bg-rukita-600 rounded-xl shadow-xs"
+                className="w-full flex items-center justify-center gap-2 py-2 text-xs font-extrabold text-white bg-brand-500 hover:bg-brand-600 rounded-xl shadow-xs"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 Chat Bu Yet via WhatsApp

@@ -73,7 +73,7 @@ Apakah waktunya bisa Bu? Terima kasih!`;
         {/* Header */}
         <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-[#FAF9F6]">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-rukita-50 text-rukita-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
               <Calendar className="w-4 h-4" />
             </div>
             <div>
@@ -96,7 +96,7 @@ Apakah waktunya bisa Bu? Terima kasih!`;
         <div className="overflow-y-auto p-6">
           {isSubmitted ? (
             <div className="text-center py-6 space-y-3">
-              <div className="w-14 h-14 rounded-full bg-rukita-50 text-rukita-600 flex items-center justify-center mx-auto border border-rukita-200">
+              <div className="w-14 h-14 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center mx-auto border border-brand-200">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
               <h4 className="text-base font-black text-gray-900">
@@ -130,7 +130,7 @@ Apakah waktunya bisa Bu? Terima kasih!`;
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Nama Lengkap Anda"
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-rukita-500 bg-gray-50"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 bg-gray-50"
                   />
                 </div>
               </div>
@@ -149,7 +149,7 @@ Apakah waktunya bisa Bu? Terima kasih!`;
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Contoh: 0812xxxxxxxx"
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-rukita-500 bg-gray-50"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 bg-gray-50"
                   />
                 </div>
               </div>
@@ -235,7 +235,7 @@ Apakah waktunya bisa Bu? Terima kasih!`;
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-rukita-500 hover:bg-rukita-600 text-white font-black text-xs transition-colors shadow-xs"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs transition-colors shadow-xs"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Kirim Jadwal via WhatsApp ke Bu Yet</span>
