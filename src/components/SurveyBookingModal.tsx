@@ -146,7 +146,7 @@ Apakah waktunya bisa Bu? Terima kasih!`;
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Contoh: 081234567890"
+                    placeholder="Contoh: 0812xxxxxxxx"
                     className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-stone-300 focus:outline-none focus:border-stone-500"
                   />
                 </div>

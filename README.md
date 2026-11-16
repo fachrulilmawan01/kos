@@ -7,6 +7,7 @@ Aplikasi web profil modern, simpel, dan sangat profesional untuk **KOS Buk Yet (
 - 🗺️ **Google Maps**: [Kos Putra Bu Yett](https://www.google.com/maps/place/Kos+Putra+Bu+Yett/@-0.9195924,100.3961469,21z/data=!4m6!3m5!1s0x2fd4b9005aa875a5:0x62008f2ad5bdb192!8m2!3d-0.9195924!4d100.3964446!16s%2Fg%2F11nvzykcns)
 - 🛏️ **Pilihan Kamar**: Tipe 1 Bed (Single) & Tipe 2 Bed (Twin Bed / Berdua)
 - 💰 **Tarif Sewa**: Terjangkau mulai dari **Rp 350.000 / bulan**
+- 📱 **Kontak WhatsApp**: [+62 812-7772-5709](https://wa.me/6281277725709)
 
 ---
 
